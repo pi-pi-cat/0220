@@ -6,19 +6,28 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>280</width>
-    <height>240</height>
+    <width>460</width>
+    <height>320</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
-    <width>280</width>
-    <height>240</height>
+    <width>460</width>
+    <height>320</height>
    </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>460</width>
+    <height>320</height>
+   </size>
+  </property>
+  <property name="styleSheet">
+   <string notr="true"/>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <property name="spacing">
-    <number>8</number>
+    <number>10</number>
    </property>
    <property name="leftMargin">
     <number>12</number>
@@ -41,6 +50,9 @@
       </size>
      </property>
      <layout class="QGridLayout" name="gridLayout">
+      <property name="sizeConstraint">
+       <enum>QLayout::SetDefaultConstraint</enum>
+      </property>
       <property name="leftMargin">
        <number>0</number>
       </property>
@@ -54,19 +66,19 @@
        <number>0</number>
       </property>
       <property name="spacing">
-       <number>4</number>
+       <number>10</number>
       </property>
       <item row="0" column="0">
        <widget class="QLabel" name="imageLabel1">
         <property name="minimumSize">
          <size>
-          <width>120</width>
-          <height>58</height>
+          <width>200</width>
+          <height>100</height>
          </size>
         </property>
         <property name="styleSheet">
-         <string notr="true">background-color: #f0f0f0;
-border-radius: 4px;</string>
+         <string notr="true">background-color: #a0f0f0;
+border-radius: 10px;</string>
         </property>
        </widget>
       </item>
@@ -74,13 +86,19 @@ border-radius: 4px;</string>
        <widget class="QLabel" name="imageLabel2">
         <property name="minimumSize">
          <size>
-          <width>120</width>
-          <height>58</height>
+          <width>200</width>
+          <height>100</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>200</width>
+          <height>100</height>
          </size>
         </property>
         <property name="styleSheet">
-         <string notr="true">background-color: #f0f0f0;
-border-radius: 4px;</string>
+         <string notr="true">background-color: #a0f0f0;
+border-radius: 10px;</string>
         </property>
        </widget>
       </item>
@@ -88,13 +106,19 @@ border-radius: 4px;</string>
        <widget class="QLabel" name="imageLabel3">
         <property name="minimumSize">
          <size>
-          <width>120</width>
-          <height>58</height>
+          <width>200</width>
+          <height>100</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>200</width>
+          <height>100</height>
          </size>
         </property>
         <property name="styleSheet">
-         <string notr="true">background-color: #f0f0f0;
-border-radius: 4px;</string>
+         <string notr="true">background-color: #a0f0f0;
+border-radius: 10px;</string>
         </property>
        </widget>
       </item>
@@ -102,13 +126,19 @@ border-radius: 4px;</string>
        <widget class="QLabel" name="imageLabel4">
         <property name="minimumSize">
          <size>
-          <width>120</width>
-          <height>58</height>
+          <width>200</width>
+          <height>100</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>200</width>
+          <height>100</height>
          </size>
         </property>
         <property name="styleSheet">
-         <string notr="true">background-color: #f0f0f0;
-border-radius: 4px;</string>
+         <string notr="true">background-color: #a0f0f0;
+border-radius: 10px;</string>
         </property>
        </widget>
       </item>
@@ -122,7 +152,6 @@ border-radius: 4px;</string>
        <property name="font">
         <font>
          <pointsize>11</pointsize>
-         <weight>75</weight>
          <bold>true</bold>
         </font>
        </property>

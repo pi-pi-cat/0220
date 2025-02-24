@@ -44,48 +44,54 @@ public:
     {
         if (ProjectCard->objectName().isEmpty())
             ProjectCard->setObjectName(QString::fromUtf8("ProjectCard"));
-        ProjectCard->resize(280, 240);
-        ProjectCard->setMinimumSize(QSize(280, 240));
+        ProjectCard->resize(460, 320);
+        ProjectCard->setMinimumSize(QSize(460, 320));
+        ProjectCard->setMaximumSize(QSize(460, 320));
+        ProjectCard->setStyleSheet(QString::fromUtf8(""));
         verticalLayout = new QVBoxLayout(ProjectCard);
-        verticalLayout->setSpacing(8);
+        verticalLayout->setSpacing(10);
         verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
         verticalLayout->setContentsMargins(12, 12, 12, 12);
         imageContainer = new QWidget(ProjectCard);
         imageContainer->setObjectName(QString::fromUtf8("imageContainer"));
         imageContainer->setMinimumSize(QSize(0, 120));
         gridLayout = new QGridLayout(imageContainer);
-        gridLayout->setSpacing(4);
+        gridLayout->setSpacing(10);
         gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
+        gridLayout->setSizeConstraint(QLayout::SetDefaultConstraint);
         gridLayout->setContentsMargins(0, 0, 0, 0);
         imageLabel1 = new QLabel(imageContainer);
         imageLabel1->setObjectName(QString::fromUtf8("imageLabel1"));
-        imageLabel1->setMinimumSize(QSize(120, 58));
-        imageLabel1->setStyleSheet(QString::fromUtf8("background-color: #f0f0f0;\n"
-"border-radius: 4px;"));
+        imageLabel1->setMinimumSize(QSize(200, 100));
+        imageLabel1->setStyleSheet(QString::fromUtf8("background-color: #a0f0f0;\n"
+"border-radius: 10px;"));
 
         gridLayout->addWidget(imageLabel1, 0, 0, 1, 1);
 
         imageLabel2 = new QLabel(imageContainer);
         imageLabel2->setObjectName(QString::fromUtf8("imageLabel2"));
-        imageLabel2->setMinimumSize(QSize(120, 58));
-        imageLabel2->setStyleSheet(QString::fromUtf8("background-color: #f0f0f0;\n"
-"border-radius: 4px;"));
+        imageLabel2->setMinimumSize(QSize(200, 100));
+        imageLabel2->setMaximumSize(QSize(200, 100));
+        imageLabel2->setStyleSheet(QString::fromUtf8("background-color: #a0f0f0;\n"
+"border-radius: 10px;"));
 
         gridLayout->addWidget(imageLabel2, 0, 1, 1, 1);
 
         imageLabel3 = new QLabel(imageContainer);
         imageLabel3->setObjectName(QString::fromUtf8("imageLabel3"));
-        imageLabel3->setMinimumSize(QSize(120, 58));
-        imageLabel3->setStyleSheet(QString::fromUtf8("background-color: #f0f0f0;\n"
-"border-radius: 4px;"));
+        imageLabel3->setMinimumSize(QSize(200, 100));
+        imageLabel3->setMaximumSize(QSize(200, 100));
+        imageLabel3->setStyleSheet(QString::fromUtf8("background-color: #a0f0f0;\n"
+"border-radius: 10px;"));
 
         gridLayout->addWidget(imageLabel3, 1, 0, 1, 1);
 
         imageLabel4 = new QLabel(imageContainer);
         imageLabel4->setObjectName(QString::fromUtf8("imageLabel4"));
-        imageLabel4->setMinimumSize(QSize(120, 58));
-        imageLabel4->setStyleSheet(QString::fromUtf8("background-color: #f0f0f0;\n"
-"border-radius: 4px;"));
+        imageLabel4->setMinimumSize(QSize(200, 100));
+        imageLabel4->setMaximumSize(QSize(200, 100));
+        imageLabel4->setStyleSheet(QString::fromUtf8("background-color: #a0f0f0;\n"
+"border-radius: 10px;"));
 
         gridLayout->addWidget(imageLabel4, 1, 1, 1, 1);
 
@@ -99,7 +105,6 @@ public:
         QFont font;
         font.setPointSize(11);
         font.setBold(true);
-        font.setWeight(75);
         projectNameLabel->setFont(font);
 
         titleLayout->addWidget(projectNameLabel);

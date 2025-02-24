@@ -7,15 +7,23 @@ GalleryView::GalleryView(QWidget *parent) :
     ui(new Ui::GalleryView)
 {
     ui->setupUi(this);
-    m_flowLayout = new FlowLayout(ui->scrollArea, 10, 10, 10);
+    m_flowLayout = new FlowLayout(ui->scrollAreaWidgetContents, 10, 10, 10);
+
+    // 删除原有的垂直布局（如果存在）
+    if (ui->scrollAreaWidgetContents->layout()) {
+        delete ui->scrollAreaWidgetContents->layout();
+    }
+
+    // 设置布局
     ui->scrollAreaWidgetContents->setLayout(m_flowLayout);
 
     // 添加5个默认的测试卡片
     for (int i = 0; i < 5; i++) {
-        ProjectCard *card = new ProjectCard(ui->scrollArea);
-        card->setMinimumSize(200, 150);  // 设置卡片的最小尺寸
-        card->setMaximumSize(200, 150);  // 设置卡片的最大尺寸
-        card->setStyleSheet("background-color: #f0f0f0; border-radius: 8px;");  // 添加一些基本样式
+        ProjectCard *card = new ProjectCard(ui->scrollAreaWidgetContents);
+        card->setMinimumSize(460, 320);  // 设置卡片的最小尺寸
+        card->setMaximumSize(460, 320);  // 设置卡片的最大尺寸
+        //card->setStyleSheet("background-color: #a0a0a0; border-radius: 10px;");  // 添加一些基本样式
+        card->setStyleSheet("border-radius: 10px;");  // 添加一些基本样式
         addProjectCard(card);
     }
 }
@@ -29,6 +37,7 @@ void GalleryView::addProjectCard(QWidget *card)
 {
     if (card) {
         m_flowLayout->addWidget(card);
+        ui->scrollAreaWidgetContents->updateGeometry();
     }
 }
 
