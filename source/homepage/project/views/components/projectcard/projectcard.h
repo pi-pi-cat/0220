@@ -5,6 +5,7 @@
 #include "global_h.h"
 
 #include <QMouseEvent>
+#include <QLabel>
 
 namespace Ui {
 class ProjectCard;
@@ -26,6 +27,9 @@ protected:
 
 private:
     Ui::ProjectCard *ui;
+    QLabel *m_plusIcon;
+    void setupPlusIcon();
+    void updatePlusIconPosition();
 };
 #endif // PROJECTCARD_H
 
