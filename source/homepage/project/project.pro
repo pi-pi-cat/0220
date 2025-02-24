@@ -37,3 +37,6 @@ FORMS += \
     views/components/projectcard/projectcard.ui \
     views/composites/galleryview/galleryview.ui \
     views/composites/toolbars/searchtoolbar.ui
+
+RESOURCES += \
+    resources/styles.qrc
