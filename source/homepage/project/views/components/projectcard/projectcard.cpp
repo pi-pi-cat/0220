@@ -20,8 +20,10 @@ ProjectCard::~ProjectCard()
 
 void ProjectCard::enterEvent(QEvent *event)
 {
-    setStyleSheet("background-color: #a0a0a0;"); // 悬停颜色
+//    setStyleSheet("QWidget { background-color: #a0a0a0; } QPushButton { background-color: #a0a0a0;  border: none; }");
+    setStyleSheet("background-color: #a0a0a0; ");
     qDebug() << "移入";
+    updatePlusIconPosition();
     m_plusIcon->show(); // 显示加号
     QWidget::enterEvent(event);
 }
@@ -42,14 +44,14 @@ void ProjectCard::mousePressEvent(QMouseEvent *event)
 
 void ProjectCard::setupPlusIcon()
 {
-    m_plusIcon = new QLabel(this);
+    m_plusIcon = new QLabel(ui->imageContainer);
 
     // 设置加号文本和样式
     m_plusIcon->setText("+");
     m_plusIcon->setStyleSheet(
         "QLabel {"
         "   color: white;"
-        "   font-size: 48px;"
+        "   font-size: 100px;"
         "   font-weight: bold;"
         "   background-color: transparent;"
         "}"
@@ -69,8 +71,9 @@ void ProjectCard::updatePlusIconPosition()
         QSize iconSize = m_plusIcon->sizeHint();
 
         // 计算居中位置
-        int x = (width() - iconSize.width()) / 2;
-        int y = (height() - iconSize.height()) / 2;
+        int x = (ui->imageContainer->width() - iconSize.width()) / 2;
+        int y = (ui->imageContainer->height() - iconSize.height()) / 2;
+
 
         // 设置加号位置和大小
         m_plusIcon->setGeometry(x, y, iconSize.width(), iconSize.height());
