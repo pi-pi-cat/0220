@@ -1,6 +1,6 @@
 #include "galleryview.h"
 #include "ui_galleryview.h"
-#include "../../components/projectcard/projectcard.h"
+
 
 GalleryView::GalleryView(QWidget *parent) :
     QWidget(parent),
@@ -17,15 +17,9 @@ GalleryView::GalleryView(QWidget *parent) :
     // 设置布局
     ui->scrollAreaWidgetContents->setLayout(m_flowLayout);
 
-    // 添加5个默认的测试卡片
-    for (int i = 0; i < 5; i++) {
-        ProjectCard *card = new ProjectCard(ui->scrollAreaWidgetContents);
-        card->setMinimumSize(460, 320);  // 设置卡片的最小尺寸
-        card->setMaximumSize(460, 320);  // 设置卡片的最大尺寸
-        //card->setStyleSheet("background-color: #a0a0a0; border-radius: 10px;");  // 添加一些基本样式
-        card->setStyleSheet("border-radius: 10px;");  // 添加一些基本样式
-        addProjectCard(card);
-    }
+    // 添加新增卡片选项
+    m_addCard = new ProjectCard(ui->scrollAreaWidgetContents);
+    addProjectCard(m_addCard);
 }
 
 GalleryView::~GalleryView()

@@ -16,7 +16,6 @@
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QPushButton>
-#include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
@@ -25,6 +24,8 @@ QT_BEGIN_NAMESPACE
 class Ui_ProjectCard
 {
 public:
+    QVBoxLayout *verticalLayout_2;
+    QWidget *mainWidget;
     QVBoxLayout *verticalLayout;
     QWidget *imageContainer;
     QGridLayout *gridLayout;
@@ -32,9 +33,8 @@ public:
     QLabel *imageLabel2;
     QLabel *imageLabel3;
     QLabel *imageLabel4;
-    QHBoxLayout *titleLayout;
+    QHBoxLayout *horizontalLayout;
     QLabel *projectNameLabel;
-    QSpacerItem *horizontalSpacer;
     QPushButton *editButton;
     QPushButton *deleteButton;
     QLabel *projectPathLabel;
@@ -44,27 +44,34 @@ public:
     {
         if (ProjectCard->objectName().isEmpty())
             ProjectCard->setObjectName(QString::fromUtf8("ProjectCard"));
-        ProjectCard->resize(460, 320);
-        ProjectCard->setMinimumSize(QSize(460, 320));
-        ProjectCard->setMaximumSize(QSize(460, 320));
-        ProjectCard->setStyleSheet(QString::fromUtf8(""));
-        verticalLayout = new QVBoxLayout(ProjectCard);
-        verticalLayout->setSpacing(10);
+        ProjectCard->resize(500, 382);
+        ProjectCard->setMinimumSize(QSize(500, 382));
+        ProjectCard->setMaximumSize(QSize(500, 382));
+        verticalLayout_2 = new QVBoxLayout(ProjectCard);
+        verticalLayout_2->setObjectName(QString::fromUtf8("verticalLayout_2"));
+        mainWidget = new QWidget(ProjectCard);
+        mainWidget->setObjectName(QString::fromUtf8("mainWidget"));
+        mainWidget->setMinimumSize(QSize(474, 358));
+        mainWidget->setMaximumSize(QSize(474, 358));
+        mainWidget->setStyleSheet(QString::fromUtf8("QWidget#mainWidget {border: 1px solid; background-color: #f7faff; border-radius: 10px;}"));
+        verticalLayout = new QVBoxLayout(mainWidget);
         verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
-        verticalLayout->setContentsMargins(12, 12, 12, 12);
-        imageContainer = new QWidget(ProjectCard);
+        imageContainer = new QWidget(mainWidget);
         imageContainer->setObjectName(QString::fromUtf8("imageContainer"));
-        imageContainer->setMinimumSize(QSize(0, 120));
+        imageContainer->setMinimumSize(QSize(450, 250));
+        imageContainer->setMaximumSize(QSize(450, 250));
         gridLayout = new QGridLayout(imageContainer);
-        gridLayout->setSpacing(10);
+        gridLayout->setSpacing(0);
         gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
         gridLayout->setSizeConstraint(QLayout::SetDefaultConstraint);
-        gridLayout->setContentsMargins(0, 0, 0, 0);
+        gridLayout->setContentsMargins(10, 10, 10, 10);
         imageLabel1 = new QLabel(imageContainer);
         imageLabel1->setObjectName(QString::fromUtf8("imageLabel1"));
         imageLabel1->setMinimumSize(QSize(200, 100));
+        imageLabel1->setMaximumSize(QSize(200, 100));
         imageLabel1->setStyleSheet(QString::fromUtf8("background-color: #a0f0f0;\n"
-"border-radius: 10px;"));
+"border-radius: 10px;\n"
+""));
 
         gridLayout->addWidget(imageLabel1, 0, 0, 1, 1);
 
@@ -98,62 +105,67 @@ public:
 
         verticalLayout->addWidget(imageContainer);
 
-        titleLayout = new QHBoxLayout();
-        titleLayout->setObjectName(QString::fromUtf8("titleLayout"));
-        projectNameLabel = new QLabel(ProjectCard);
+        horizontalLayout = new QHBoxLayout();
+        horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
+        projectNameLabel = new QLabel(mainWidget);
         projectNameLabel->setObjectName(QString::fromUtf8("projectNameLabel"));
         QFont font;
         font.setPointSize(11);
         font.setBold(true);
         projectNameLabel->setFont(font);
+        projectNameLabel->setStyleSheet(QString::fromUtf8(""));
+        projectNameLabel->setIndent(10);
 
-        titleLayout->addWidget(projectNameLabel);
+        horizontalLayout->addWidget(projectNameLabel);
 
-        horizontalSpacer = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        titleLayout->addItem(horizontalSpacer);
-
-        editButton = new QPushButton(ProjectCard);
+        editButton = new QPushButton(mainWidget);
         editButton->setObjectName(QString::fromUtf8("editButton"));
         editButton->setMinimumSize(QSize(24, 24));
         editButton->setMaximumSize(QSize(24, 24));
+        editButton->setStyleSheet(QString::fromUtf8("border: none;"));
         QIcon icon;
         icon.addFile(QString::fromUtf8(":/icons/edit.svg"), QSize(), QIcon::Normal, QIcon::Off);
         editButton->setIcon(icon);
         editButton->setFlat(true);
 
-        titleLayout->addWidget(editButton);
+        horizontalLayout->addWidget(editButton);
 
-        deleteButton = new QPushButton(ProjectCard);
+        deleteButton = new QPushButton(mainWidget);
         deleteButton->setObjectName(QString::fromUtf8("deleteButton"));
         deleteButton->setMinimumSize(QSize(24, 24));
         deleteButton->setMaximumSize(QSize(24, 24));
+        deleteButton->setStyleSheet(QString::fromUtf8("border: none; "));
         QIcon icon1;
         icon1.addFile(QString::fromUtf8(":/icons/delete.svg"), QSize(), QIcon::Normal, QIcon::Off);
         deleteButton->setIcon(icon1);
         deleteButton->setFlat(true);
 
-        titleLayout->addWidget(deleteButton);
+        horizontalLayout->addWidget(deleteButton);
 
 
-        verticalLayout->addLayout(titleLayout);
+        verticalLayout->addLayout(horizontalLayout);
 
-        projectPathLabel = new QLabel(ProjectCard);
+        projectPathLabel = new QLabel(mainWidget);
         projectPathLabel->setObjectName(QString::fromUtf8("projectPathLabel"));
         QFont font1;
         font1.setPointSize(9);
         projectPathLabel->setFont(font1);
         projectPathLabel->setStyleSheet(QString::fromUtf8("color: #666666;"));
         projectPathLabel->setWordWrap(true);
+        projectPathLabel->setIndent(10);
 
         verticalLayout->addWidget(projectPathLabel);
 
-        lastModifiedLabel = new QLabel(ProjectCard);
+        lastModifiedLabel = new QLabel(mainWidget);
         lastModifiedLabel->setObjectName(QString::fromUtf8("lastModifiedLabel"));
         lastModifiedLabel->setFont(font1);
         lastModifiedLabel->setStyleSheet(QString::fromUtf8("color: #666666;"));
+        lastModifiedLabel->setIndent(10);
 
         verticalLayout->addWidget(lastModifiedLabel);
+
+
+        verticalLayout_2->addWidget(mainWidget);
 
 
         retranslateUi(ProjectCard);

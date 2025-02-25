@@ -5,6 +5,7 @@
 #include "global_h.h"
 #include "../toolbars/searchtoolbar.h"
 #include "../../layouts/flowlayout.h"
+#include "../../components/projectcard/projectcard.h"
 
 namespace Ui {
 class GalleryView;
@@ -21,9 +22,12 @@ public:
     void addProjectCard(QWidget *card);
     void clear();
 
+public:
+    ProjectCard *m_addCard;
 private:
     Ui::GalleryView *ui;
     FlowLayout *m_flowLayout;
+
 };
 #endif // GALLERYVIEW_H
 

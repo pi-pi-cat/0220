@@ -20,8 +20,7 @@ ProjectCard::~ProjectCard()
 
 void ProjectCard::enterEvent(QEvent *event)
 {
-//    setStyleSheet("QWidget { background-color: #a0a0a0; } QPushButton { background-color: #a0a0a0;  border: none; }");
-    setStyleSheet("background-color: #a0a0a0; ");
+    ui->mainWidget->setStyleSheet("QWidget#mainWidget {border: 1px solid; background-color: #a6c1d4; border-radius: 10px;}");
     qDebug() << "移入";
     updatePlusIconPosition();
     m_plusIcon->show(); // 显示加号
@@ -30,7 +29,7 @@ void ProjectCard::enterEvent(QEvent *event)
 
 void ProjectCard::leaveEvent(QEvent *event)
 {
-    setStyleSheet("background-color: transparent;"); // 恢复透明
+    ui->mainWidget->setStyleSheet("QWidget#mainWidget {border: 1px solid; background-color: #f7faff; border-radius: 10px;}");// 恢复
     qDebug() << "移出";
     m_plusIcon->hide(); // 隐藏加号
     QWidget::leaveEvent(event);
@@ -47,15 +46,19 @@ void ProjectCard::setupPlusIcon()
     m_plusIcon = new QLabel(ui->imageContainer);
 
     // 设置加号文本和样式
-    m_plusIcon->setText("+");
+    m_plusIcon->setFixedSize(40, 40); // 设置固定的宽度和高度（例如80px）
     m_plusIcon->setStyleSheet(
         "QLabel {"
         "   color: white;"
-        "   font-size: 100px;"
+        "   font-size: 20px;"
         "   font-weight: bold;"
-        "   background-color: transparent;"
+        "   background-color: #0d6baf;"
+        "   border-radius: 20px;" // 半径等于宽度/高度的一半
+        "   text-align: center;" // 文本居中
+        "   qproperty-alignment: AlignCenter;" // 确保+号居中显示
         "}"
         );
+    m_plusIcon->setText("+");
 
     // 初始状态隐藏
     m_plusIcon->hide();

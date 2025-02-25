@@ -2,9 +2,10 @@
 #define PROJECTLISTMODEL_H
 
 #include <QAbstractListModel>
+#include "global_h.h"
 #include "../internal/projectitem.h"
 
-class ProjectListModel : public QAbstractListModel
+class PROJECT_EXPORT ProjectListModel : public QAbstractListModel
 {
     Q_OBJECT
 public:
@@ -13,7 +14,14 @@ public:
         ByName,
         BySize
     };
-    ProjectListModel();
+    ProjectListModel(QObject* parent = nullptr);
+
+    // 必需实现的纯虚函数
+    int rowCount(const QModelIndex &parent = QModelIndex()) const;
+    QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const;
+
+    // 添加新项目的方法
+    ProjectItem* createNewProject();
 
 private:
     QList<ProjectItem> m_projects;

@@ -892,6 +892,8 @@ moc_projectlogic.cpp: /Users/yxf/Documents/QtOnline/0220/source/homepage/project
 moc_projectmediator.cpp: /Users/yxf/Documents/QtOnline/0220/source/homepage/project/controller/mediators/projectmediator.h \
 		/opt/homebrew/Cellar/qt@5/5.15.16/lib/QtCore.framework/Headers/QObject \
 		/opt/homebrew/Cellar/qt@5/5.15.16/lib/QtCore.framework/Headers/qobject.h \
+		/opt/homebrew/Cellar/qt@5/5.15.16/lib/QtCore.framework/Headers/QDebug \
+		/opt/homebrew/Cellar/qt@5/5.15.16/lib/QtCore.framework/Headers/qdebug.h \
 		moc_predefs.h \
 		/opt/homebrew/Cellar/qt@5/5.15.16/bin/moc
 	/opt/homebrew/Cellar/qt@5/5.15.16/bin/moc $(DEFINES) --include /Users/yxf/Documents/QtOnline/0220/build/arm_darwin_generic_mach_o_32bit-Debug/source/homepage/project/moc_predefs.h -I/opt/homebrew/Cellar/qt@5/5.15.16/mkspecs/macx-clang -I/Users/yxf/Documents/QtOnline/0220/source/homepage/project -I/Users/yxf/Documents/QtOnline/0220/source -I/Users/yxf/Documents/QtOnline/0220/source/homepage -I/Users/yxf/Documents/QtOnline/0220/source/homepage/project -I/Users/yxf/Documents/QtOnline/0220/source/homepage/project -I/Users/yxf/Documents/QtOnline/0220/source/homepage -I/Users/yxf/Documents/QtOnline/0220/source/homepage/project/views/composites/toolbars -I/opt/homebrew/Cellar/qt@5/5.15.16/lib/QtWidgets.framework/Headers -I/opt/homebrew/Cellar/qt@5/5.15.16/lib/QtGui.framework/Headers -I/opt/homebrew/Cellar/qt@5/5.15.16/lib/QtXml.framework/Headers -I/opt/homebrew/Cellar/qt@5/5.15.16/lib/QtConcurrent.framework/Headers -I/opt/homebrew/Cellar/qt@5/5.15.16/lib/QtCore.framework/Headers -I. -I/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1 -I/Library/Developer/CommandLineTools/usr/lib/clang/15.0.0/include -I/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include -I/Library/Developer/CommandLineTools/usr/include -F/opt/homebrew/Cellar/qt@5/5.15.16/lib /Users/yxf/Documents/QtOnline/0220/source/homepage/project/controller/mediators/projectmediator.h -o moc_projectmediator.cpp
@@ -927,6 +929,10 @@ moc_projectcard.cpp: /Users/yxf/Documents/QtOnline/0220/source/homepage/project/
 		/opt/homebrew/Cellar/qt@5/5.15.16/lib/QtWidgets.framework/Headers/QWidget \
 		/opt/homebrew/Cellar/qt@5/5.15.16/lib/QtWidgets.framework/Headers/qwidget.h \
 		/Users/yxf/Documents/QtOnline/0220/source/homepage/project/global_h.h \
+		/opt/homebrew/Cellar/qt@5/5.15.16/lib/QtGui.framework/Headers/QMouseEvent \
+		/opt/homebrew/Cellar/qt@5/5.15.16/lib/QtGui.framework/Headers/qevent.h \
+		/opt/homebrew/Cellar/qt@5/5.15.16/lib/QtWidgets.framework/Headers/QLabel \
+		/opt/homebrew/Cellar/qt@5/5.15.16/lib/QtWidgets.framework/Headers/qlabel.h \
 		moc_predefs.h \
 		/opt/homebrew/Cellar/qt@5/5.15.16/bin/moc
 	/opt/homebrew/Cellar/qt@5/5.15.16/bin/moc $(DEFINES) --include /Users/yxf/Documents/QtOnline/0220/build/arm_darwin_generic_mach_o_32bit-Debug/source/homepage/project/moc_predefs.h -I/opt/homebrew/Cellar/qt@5/5.15.16/mkspecs/macx-clang -I/Users/yxf/Documents/QtOnline/0220/source/homepage/project -I/Users/yxf/Documents/QtOnline/0220/source -I/Users/yxf/Documents/QtOnline/0220/source/homepage -I/Users/yxf/Documents/QtOnline/0220/source/homepage/project -I/Users/yxf/Documents/QtOnline/0220/source/homepage/project -I/Users/yxf/Documents/QtOnline/0220/source/homepage -I/Users/yxf/Documents/QtOnline/0220/source/homepage/project/views/composites/toolbars -I/opt/homebrew/Cellar/qt@5/5.15.16/lib/QtWidgets.framework/Headers -I/opt/homebrew/Cellar/qt@5/5.15.16/lib/QtGui.framework/Headers -I/opt/homebrew/Cellar/qt@5/5.15.16/lib/QtXml.framework/Headers -I/opt/homebrew/Cellar/qt@5/5.15.16/lib/QtConcurrent.framework/Headers -I/opt/homebrew/Cellar/qt@5/5.15.16/lib/QtCore.framework/Headers -I. -I/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1 -I/Library/Developer/CommandLineTools/usr/lib/clang/15.0.0/include -I/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include -I/Library/Developer/CommandLineTools/usr/include -F/opt/homebrew/Cellar/qt@5/5.15.16/lib /Users/yxf/Documents/QtOnline/0220/source/homepage/project/views/components/projectcard/projectcard.h -o moc_projectcard.cpp
@@ -949,6 +955,9 @@ moc_galleryview.cpp: /Users/yxf/Documents/QtOnline/0220/source/homepage/project/
 		/opt/homebrew/Cellar/qt@5/5.15.16/lib/QtCore.framework/Headers/qrect.h \
 		/opt/homebrew/Cellar/qt@5/5.15.16/lib/QtWidgets.framework/Headers/QStyle \
 		/opt/homebrew/Cellar/qt@5/5.15.16/lib/QtWidgets.framework/Headers/qstyle.h \
+		/Users/yxf/Documents/QtOnline/0220/source/homepage/project/views/components/projectcard/projectcard.h \
+		/opt/homebrew/Cellar/qt@5/5.15.16/lib/QtGui.framework/Headers/QMouseEvent \
+		/opt/homebrew/Cellar/qt@5/5.15.16/lib/QtGui.framework/Headers/qevent.h \
 		moc_predefs.h \
 		/opt/homebrew/Cellar/qt@5/5.15.16/bin/moc
 	/opt/homebrew/Cellar/qt@5/5.15.16/bin/moc $(DEFINES) --include /Users/yxf/Documents/QtOnline/0220/build/arm_darwin_generic_mach_o_32bit-Debug/source/homepage/project/moc_predefs.h -I/opt/homebrew/Cellar/qt@5/5.15.16/mkspecs/macx-clang -I/Users/yxf/Documents/QtOnline/0220/source/homepage/project -I/Users/yxf/Documents/QtOnline/0220/source -I/Users/yxf/Documents/QtOnline/0220/source/homepage -I/Users/yxf/Documents/QtOnline/0220/source/homepage/project -I/Users/yxf/Documents/QtOnline/0220/source/homepage/project -I/Users/yxf/Documents/QtOnline/0220/source/homepage -I/Users/yxf/Documents/QtOnline/0220/source/homepage/project/views/composites/toolbars -I/opt/homebrew/Cellar/qt@5/5.15.16/lib/QtWidgets.framework/Headers -I/opt/homebrew/Cellar/qt@5/5.15.16/lib/QtGui.framework/Headers -I/opt/homebrew/Cellar/qt@5/5.15.16/lib/QtXml.framework/Headers -I/opt/homebrew/Cellar/qt@5/5.15.16/lib/QtConcurrent.framework/Headers -I/opt/homebrew/Cellar/qt@5/5.15.16/lib/QtCore.framework/Headers -I. -I/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1 -I/Library/Developer/CommandLineTools/usr/lib/clang/15.0.0/include -I/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include -I/Library/Developer/CommandLineTools/usr/include -F/opt/homebrew/Cellar/qt@5/5.15.16/lib /Users/yxf/Documents/QtOnline/0220/source/homepage/project/views/composites/galleryview/galleryview.h -o moc_galleryview.cpp
@@ -1028,7 +1037,39 @@ projectlogic.o: /Users/yxf/Documents/QtOnline/0220/source/homepage/project/contr
 
 projectmediator.o: /Users/yxf/Documents/QtOnline/0220/source/homepage/project/controller/mediators/projectmediator.cpp /Users/yxf/Documents/QtOnline/0220/source/homepage/project/controller/mediators/projectmediator.h \
 		/opt/homebrew/Cellar/qt@5/5.15.16/lib/QtCore.framework/Headers/QObject \
-		/opt/homebrew/Cellar/qt@5/5.15.16/lib/QtCore.framework/Headers/qobject.h
+		/opt/homebrew/Cellar/qt@5/5.15.16/lib/QtCore.framework/Headers/qobject.h \
+		/opt/homebrew/Cellar/qt@5/5.15.16/lib/QtCore.framework/Headers/QDebug \
+		/opt/homebrew/Cellar/qt@5/5.15.16/lib/QtCore.framework/Headers/qdebug.h \
+		/Users/yxf/Documents/QtOnline/0220/source/homepage/project/views/components/projectcard/projectcard.h \
+		/opt/homebrew/Cellar/qt@5/5.15.16/lib/QtWidgets.framework/Headers/QWidget \
+		/opt/homebrew/Cellar/qt@5/5.15.16/lib/QtWidgets.framework/Headers/qwidget.h \
+		/Users/yxf/Documents/QtOnline/0220/source/homepage/project/global_h.h \
+		/opt/homebrew/Cellar/qt@5/5.15.16/lib/QtGui.framework/Headers/QMouseEvent \
+		/opt/homebrew/Cellar/qt@5/5.15.16/lib/QtGui.framework/Headers/qevent.h \
+		/opt/homebrew/Cellar/qt@5/5.15.16/lib/QtWidgets.framework/Headers/QLabel \
+		/opt/homebrew/Cellar/qt@5/5.15.16/lib/QtWidgets.framework/Headers/qlabel.h \
+		/Users/yxf/Documents/QtOnline/0220/source/homepage/project/views/composites/galleryview/galleryview.h \
+		/Users/yxf/Documents/QtOnline/0220/source/homepage/project/views/composites/toolbars/searchtoolbar.h \
+		/opt/homebrew/Cellar/qt@5/5.15.16/lib/QtWidgets.framework/Headers/QComboBox \
+		/opt/homebrew/Cellar/qt@5/5.15.16/lib/QtWidgets.framework/Headers/qcombobox.h \
+		/opt/homebrew/Cellar/qt@5/5.15.16/lib/QtWidgets.framework/Headers/QLineEdit \
+		/opt/homebrew/Cellar/qt@5/5.15.16/lib/QtWidgets.framework/Headers/qlineedit.h \
+		/Users/yxf/Documents/QtOnline/0220/source/homepage/project/views/layouts/flowlayout.h \
+		/opt/homebrew/Cellar/qt@5/5.15.16/lib/QtWidgets.framework/Headers/QLayout \
+		/opt/homebrew/Cellar/qt@5/5.15.16/lib/QtWidgets.framework/Headers/qlayout.h \
+		/opt/homebrew/Cellar/qt@5/5.15.16/lib/QtCore.framework/Headers/QRect \
+		/opt/homebrew/Cellar/qt@5/5.15.16/lib/QtCore.framework/Headers/qrect.h \
+		/opt/homebrew/Cellar/qt@5/5.15.16/lib/QtWidgets.framework/Headers/QStyle \
+		/opt/homebrew/Cellar/qt@5/5.15.16/lib/QtWidgets.framework/Headers/qstyle.h \
+		/Users/yxf/Documents/QtOnline/0220/source/homepage/project/models/datamodel/projectlistmodel.h \
+		/opt/homebrew/Cellar/qt@5/5.15.16/lib/QtCore.framework/Headers/QAbstractListModel \
+		/opt/homebrew/Cellar/qt@5/5.15.16/lib/QtCore.framework/Headers/qabstractitemmodel.h \
+		/Users/yxf/Documents/QtOnline/0220/source/homepage/project/models/internal/projectitem.h \
+		/opt/homebrew/Cellar/qt@5/5.15.16/lib/QtCore.framework/Headers/QString \
+		/opt/homebrew/Cellar/qt@5/5.15.16/lib/QtCore.framework/Headers/qstring.h \
+		/opt/homebrew/Cellar/qt@5/5.15.16/lib/QtCore.framework/Headers/QDateTime \
+		/opt/homebrew/Cellar/qt@5/5.15.16/lib/QtCore.framework/Headers/qdatetime.h \
+		/Users/yxf/Documents/QtOnline/0220/source/homepage/project/controller/logic/projectlogic.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o projectmediator.o /Users/yxf/Documents/QtOnline/0220/source/homepage/project/controller/mediators/projectmediator.cpp
 
 projectlistmodel.o: /Users/yxf/Documents/QtOnline/0220/source/homepage/project/models/datamodel/projectlistmodel.cpp /Users/yxf/Documents/QtOnline/0220/source/homepage/project/models/datamodel/projectlistmodel.h \
@@ -1066,7 +1107,13 @@ projectcard.o: /Users/yxf/Documents/QtOnline/0220/source/homepage/project/views/
 		/opt/homebrew/Cellar/qt@5/5.15.16/lib/QtWidgets.framework/Headers/QWidget \
 		/opt/homebrew/Cellar/qt@5/5.15.16/lib/QtWidgets.framework/Headers/qwidget.h \
 		/Users/yxf/Documents/QtOnline/0220/source/homepage/project/global_h.h \
-		ui_projectcard.h
+		/opt/homebrew/Cellar/qt@5/5.15.16/lib/QtGui.framework/Headers/QMouseEvent \
+		/opt/homebrew/Cellar/qt@5/5.15.16/lib/QtGui.framework/Headers/qevent.h \
+		/opt/homebrew/Cellar/qt@5/5.15.16/lib/QtWidgets.framework/Headers/QLabel \
+		/opt/homebrew/Cellar/qt@5/5.15.16/lib/QtWidgets.framework/Headers/qlabel.h \
+		ui_projectcard.h \
+		/opt/homebrew/Cellar/qt@5/5.15.16/lib/QtCore.framework/Headers/QDebug \
+		/opt/homebrew/Cellar/qt@5/5.15.16/lib/QtCore.framework/Headers/qdebug.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o projectcard.o /Users/yxf/Documents/QtOnline/0220/source/homepage/project/views/components/projectcard/projectcard.cpp
 
 galleryview.o: /Users/yxf/Documents/QtOnline/0220/source/homepage/project/views/composites/galleryview/galleryview.cpp /Users/yxf/Documents/QtOnline/0220/source/homepage/project/views/composites/galleryview/galleryview.h \
@@ -1087,8 +1134,10 @@ galleryview.o: /Users/yxf/Documents/QtOnline/0220/source/homepage/project/views/
 		/opt/homebrew/Cellar/qt@5/5.15.16/lib/QtCore.framework/Headers/qrect.h \
 		/opt/homebrew/Cellar/qt@5/5.15.16/lib/QtWidgets.framework/Headers/QStyle \
 		/opt/homebrew/Cellar/qt@5/5.15.16/lib/QtWidgets.framework/Headers/qstyle.h \
-		ui_galleryview.h \
-		/Users/yxf/Documents/QtOnline/0220/source/homepage/project/views/components/projectcard/projectcard.h
+		/Users/yxf/Documents/QtOnline/0220/source/homepage/project/views/components/projectcard/projectcard.h \
+		/opt/homebrew/Cellar/qt@5/5.15.16/lib/QtGui.framework/Headers/QMouseEvent \
+		/opt/homebrew/Cellar/qt@5/5.15.16/lib/QtGui.framework/Headers/qevent.h \
+		ui_galleryview.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o galleryview.o /Users/yxf/Documents/QtOnline/0220/source/homepage/project/views/composites/galleryview/galleryview.cpp
 
 searchtoolbar.o: /Users/yxf/Documents/QtOnline/0220/source/homepage/project/views/composites/toolbars/searchtoolbar.cpp /Users/yxf/Documents/QtOnline/0220/source/homepage/project/views/composites/toolbars/searchtoolbar.h \

@@ -873,7 +873,24 @@ mainwindow.o: ../../../../app/testapp/mainwindow.cpp ../../../../app/testapp/mai
 		/opt/homebrew/Cellar/qt@5/5.15.16/lib/QtCore.framework/Headers/QRect \
 		/opt/homebrew/Cellar/qt@5/5.15.16/lib/QtCore.framework/Headers/qrect.h \
 		/opt/homebrew/Cellar/qt@5/5.15.16/lib/QtWidgets.framework/Headers/QStyle \
-		/opt/homebrew/Cellar/qt@5/5.15.16/lib/QtWidgets.framework/Headers/qstyle.h
+		/opt/homebrew/Cellar/qt@5/5.15.16/lib/QtWidgets.framework/Headers/qstyle.h \
+		../../../../source/homepage/project/views/components/projectcard/projectcard.h \
+		/opt/homebrew/Cellar/qt@5/5.15.16/lib/QtGui.framework/Headers/QMouseEvent \
+		/opt/homebrew/Cellar/qt@5/5.15.16/lib/QtGui.framework/Headers/qevent.h \
+		../../../../source/homepage/project/controller/logic/projectlogic.h \
+		/opt/homebrew/Cellar/qt@5/5.15.16/lib/QtCore.framework/Headers/QObject \
+		/opt/homebrew/Cellar/qt@5/5.15.16/lib/QtCore.framework/Headers/qobject.h \
+		../../../../source/homepage/project/controller/mediators/projectmediator.h \
+		/opt/homebrew/Cellar/qt@5/5.15.16/lib/QtCore.framework/Headers/QDebug \
+		/opt/homebrew/Cellar/qt@5/5.15.16/lib/QtCore.framework/Headers/qdebug.h \
+		../../../../source/homepage/project/models/datamodel/projectlistmodel.h \
+		/opt/homebrew/Cellar/qt@5/5.15.16/lib/QtCore.framework/Headers/QAbstractListModel \
+		/opt/homebrew/Cellar/qt@5/5.15.16/lib/QtCore.framework/Headers/qabstractitemmodel.h \
+		../../../../source/homepage/project/models/internal/projectitem.h \
+		/opt/homebrew/Cellar/qt@5/5.15.16/lib/QtCore.framework/Headers/QString \
+		/opt/homebrew/Cellar/qt@5/5.15.16/lib/QtCore.framework/Headers/qstring.h \
+		/opt/homebrew/Cellar/qt@5/5.15.16/lib/QtCore.framework/Headers/QDateTime \
+		/opt/homebrew/Cellar/qt@5/5.15.16/lib/QtCore.framework/Headers/qdatetime.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o ../../../../app/testapp/mainwindow.cpp
 
 moc_mainwindow.o: moc_mainwindow.cpp 

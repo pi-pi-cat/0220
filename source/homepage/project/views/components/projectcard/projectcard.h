@@ -19,6 +19,10 @@ public:
     explicit ProjectCard(QWidget *parent = nullptr);
     ~ProjectCard();
 
+signals:
+    void cardClicked();
+    void cardCreate();
+
 protected:
     // 重写鼠标进入和离开事件
     void enterEvent(QEvent *event);
