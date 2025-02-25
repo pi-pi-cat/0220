@@ -42,6 +42,9 @@ MainWindow::MainWindow(QWidget *parent)
     // 创建并初始化中介者
     ProjectMediator *projectMediator = new ProjectMediator(this);
     projectMediator->initialize(galleryView, projectLogic, projectListModel);
+
+    // 加载初始项目
+    projectLogic->loadInitialProjects();
 }
 
 MainWindow::~MainWindow()

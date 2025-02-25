@@ -1,11 +1,13 @@
 #include "projectcard.h"
 #include "ui_projectcard.h"
+#include "../../../models/internal/projectitem.h"
 
 #include <QDebug>
 
 ProjectCard::ProjectCard(QWidget *parent) :
     QWidget(parent),
-    ui(new Ui::ProjectCard)
+    ui(new Ui::ProjectCard),
+    m_isCreateCard(true)
 {
     ui->setupUi(this);
     setAttribute(Qt::WA_Hover);
@@ -13,9 +15,33 @@ ProjectCard::ProjectCard(QWidget *parent) :
     setupPlusIcon();
 }
 
+ProjectCard::ProjectCard(const ProjectItem &item, QWidget *parent):
+    QWidget(parent),
+    ui(new Ui::ProjectCard),
+    m_isCreateCard(false)
+{
+    ui->setupUi(this);
+    setAttribute(Qt::WA_Hover);
+    setAutoFillBackground(true);
+
+    //设置
+    ui->projectNameLabel->setText(item.name());
+    ui->projectPathLabel->setText(item.path());
+}
+
 ProjectCard::~ProjectCard()
 {
     delete ui;
+}
+
+void ProjectCard::setIsCreateCard(bool isCreate)
+{
+    m_isCreateCard = isCreate;
+}
+
+bool ProjectCard::isCreateCard() const
+{
+    return m_isCreateCard;
 }
 
 void ProjectCard::enterEvent(QEvent *event)
@@ -23,7 +49,8 @@ void ProjectCard::enterEvent(QEvent *event)
     ui->mainWidget->setStyleSheet("QWidget#mainWidget {border: 1px solid; background-color: #a6c1d4; border-radius: 10px;}");
     qDebug() << "移入";
     updatePlusIconPosition();
-    m_plusIcon->show(); // 显示加号
+    if (m_plusIcon)
+        m_plusIcon->show(); // 显示加号
     QWidget::enterEvent(event);
 }
 
@@ -31,13 +58,19 @@ void ProjectCard::leaveEvent(QEvent *event)
 {
     ui->mainWidget->setStyleSheet("QWidget#mainWidget {border: 1px solid; background-color: #f7faff; border-radius: 10px;}");// 恢复
     qDebug() << "移出";
-    m_plusIcon->hide(); // 隐藏加号
+    if (m_plusIcon)
+        m_plusIcon->hide(); // 隐藏加号
     QWidget::leaveEvent(event);
 }
 
 void ProjectCard::mousePressEvent(QMouseEvent *event)
 {
     qDebug() << "点击";
+    if (m_isCreateCard) {
+        emit cardCreate();
+    } else {
+        emit cardClicked();
+    }
     QWidget::mousePressEvent(event);
 }
 

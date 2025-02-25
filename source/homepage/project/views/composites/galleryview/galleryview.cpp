@@ -27,12 +27,27 @@ GalleryView::~GalleryView()
     delete ui;
 }
 
-void GalleryView::addProjectCard(QWidget *card)
+void GalleryView::addProjectCard(ProjectCard *card)
 {
     if (card) {
-        m_flowLayout->addWidget(card);
+        // 如果是添加普通项目卡片，需要将其插入到新建卡片之前
+        if (!card->isCreateCard()) {
+            int lastIndex = m_flowLayout->count() - 1;
+            // m_flowLayout->insertWidget(lastIndex, card);
+            m_flowLayout->addWidget(card);
+        } else {
+            m_flowLayout->addWidget(card);
+        }
         ui->scrollAreaWidgetContents->updateGeometry();
     }
+}
+
+void GalleryView::onProjectAdded(const ProjectItem &project)
+{
+    // 1. 创建新的项目卡片
+    ProjectCard *card = new ProjectCard(project, ui->scrollAreaWidgetContents);
+    // 2. 添加到布局中，确保在"新建"卡片之前
+    addProjectCard(card);
 }
 
 void GalleryView::clear()

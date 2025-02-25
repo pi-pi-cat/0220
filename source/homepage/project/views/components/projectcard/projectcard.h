@@ -2,10 +2,12 @@
 #define PROJECTCARD_H
 
 #include <QWidget>
-#include "global_h.h"
-
 #include <QMouseEvent>
 #include <QLabel>
+#include "global_h.h"
+
+
+class ProjectItem;
 
 namespace Ui {
 class ProjectCard;
@@ -17,7 +19,10 @@ class PROJECT_EXPORT ProjectCard : public QWidget
 
 public:
     explicit ProjectCard(QWidget *parent = nullptr);
+    explicit ProjectCard(const ProjectItem& item, QWidget *parent = nullptr);  // 新增构造函数
     ~ProjectCard();
+    void setIsCreateCard(bool isCreate);  // 新增方法
+    bool isCreateCard() const;  // 新增方法
 
 signals:
     void cardClicked();
@@ -32,6 +37,7 @@ protected:
 private:
     Ui::ProjectCard *ui;
     QLabel *m_plusIcon;
+    bool m_isCreateCard;  // 判断自己是否新增卡片对象
     void setupPlusIcon();
     void updatePlusIconPosition();
 };

@@ -19,7 +19,8 @@ public:
     explicit GalleryView(QWidget *parent = nullptr);
     ~GalleryView();
 
-    void addProjectCard(QWidget *card);
+    void addProjectCard(ProjectCard *card);
+    void onProjectAdded(const ProjectItem &project); //新增项目后
     void clear();
 
 public:

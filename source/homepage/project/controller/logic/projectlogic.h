@@ -14,6 +14,7 @@ public:
     explicit ProjectLogic(QObject *parent = nullptr);
     void setProjectListModel(ProjectListModel *model);
     void setGalleryView(GalleryView *view);
+    void loadInitialProjects();
 
 public slots:
     void createNewProject();
@@ -22,6 +23,7 @@ private:
     // 对模型和视图的引用
     ProjectListModel* m_projectListModel;
     GalleryView* m_galleryView;
+
 
 };
 #endif // PROJECTLOGIC_H
