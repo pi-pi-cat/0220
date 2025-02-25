@@ -46,7 +46,7 @@ bool ProjectCard::isCreateCard() const
 
 void ProjectCard::enterEvent(QEvent *event)
 {
-    ui->mainWidget->setStyleSheet("QWidget#mainWidget {border: 1px solid; background-color: #a6c1d4; border-radius: 10px;}");
+    ui->mainWidget->setStyleSheet("QWidget#mainWidget {border: 1px solid; background-color: #a6c1d4; border-radius: 10px;} QWidget#imageContainer {border: 1px solid; background-color: #a6c1d4; border-radius: 10px;} ");
     qDebug() << "移入";
     updatePlusIconPosition();
     if (m_plusIcon)
@@ -56,7 +56,7 @@ void ProjectCard::enterEvent(QEvent *event)
 
 void ProjectCard::leaveEvent(QEvent *event)
 {
-    ui->mainWidget->setStyleSheet("QWidget#mainWidget {border: 1px solid; background-color: #f7faff; border-radius: 10px;}");// 恢复
+    ui->mainWidget->setStyleSheet("QWidget#mainWidget {border: 1px solid; background-color: #f7faff; border-radius: 10px;} QWidget#imageContainer {border: 1px solid; background-color: #f7faff; border-radius: 10px;}");// 恢复
     qDebug() << "移出";
     if (m_plusIcon)
         m_plusIcon->hide(); // 隐藏加号

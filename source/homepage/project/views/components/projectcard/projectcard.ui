@@ -38,7 +38,8 @@
       </size>
      </property>
      <property name="styleSheet">
-      <string notr="true">QWidget#mainWidget {border: 1px solid; background-color: #f7faff; border-radius: 10px;}</string>
+      <string notr="true">QWidget#mainWidget {border: 1px solid; background-color: #f7faff; border-radius: 10px;} 
+QWidget#imageContainer {border: 1px solid; background-color: #f7faff; border-radius: 10px;}</string>
      </property>
      <layout class="QVBoxLayout" name="verticalLayout">
       <item>
