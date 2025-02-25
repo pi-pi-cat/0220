@@ -41,4 +41,6 @@ void ProjectMediator::connectSignals()
     // });
     // 连接普通卡片的点击信号
     connect(m_galleryView, &GalleryView::projectCardClicked, m_projectLogic, &ProjectLogic::openProject);
+    // 连接普通卡片的删除信号
+    connect(m_galleryView, &GalleryView::projectCardDelete, m_projectLogic, &ProjectLogic::deleteProject);
 }

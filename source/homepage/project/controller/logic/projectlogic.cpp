@@ -1,5 +1,4 @@
 #include "projectlogic.h"
-#include "../../models/datamodel/projectlistmodel.h"
 #include "../../models/internal/projectitem.h"
 #include "../../views/composites/galleryview/galleryview.h"
 
@@ -39,6 +38,35 @@ void ProjectLogic::openProject(const ProjectItem &project)
 
     // 发出信号通知其他组件（比如主窗口）需要打开新界面
     emit projectOpened(project);
+}
+
+void ProjectLogic::deleteProject(const ProjectItem &project)
+{
+    if(m_projectListModel){
+        // 1. 删除项目数据
+        bool success = m_projectListModel->removeProject(project);
+        // 2. 通知视图更新
+        if (success && m_galleryView) {
+             // 这里会创建新的ProjectCard并添加到视图中
+            m_galleryView->onProjectRemoved(project);
+        }
+    }
+}
+
+void ProjectLogic::sortProjects(ProjectListModel::SortRole sortRole)
+{
+    if (m_projectListModel) {
+        // 设置新的排序规则并应用
+        m_projectListModel->setSortRole(sortRole);
+
+        // 获取排序后的项目列表
+        QList<ProjectItem> sortedProjects = m_projectListModel->getProjects();
+
+        // 更新视图
+        if (m_galleryView) {
+            m_galleryView->sortCards(sortedProjects);
+        }
+    }
 }
 
 void ProjectLogic::loadInitialProjects()

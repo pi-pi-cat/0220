@@ -3,17 +3,32 @@
 
 #include <QString>
 #include <QDateTime>
+#include <QFileInfo>
+#include <QDir>
 #include "global_h.h"
 
 class PROJECT_EXPORT ProjectItem {
 public:
     ProjectItem();
-    ProjectItem(const QString& name, const QString& path);
+    ProjectItem(const QString& name, const QString& path, const QDateTime& lastEditTime=QDateTime::currentDateTime());
 
+    //获取项目名称
     QString name() const;
     void setName(const QString &name);
+
+    // 获取项目路径
     QString path() const;
     void path(const QString &path);
+
+    // 获取项目大小（字节）
+    qint64 size() const;
+
+    // 获取最后编辑时间
+    QDateTime lastEditTime() const;
+    void setLastEditTime(const QDateTime &time);
+
+    // 添加相等比较运算符
+    bool operator==(const ProjectItem &other) const;
 
 private:
     QString m_name;

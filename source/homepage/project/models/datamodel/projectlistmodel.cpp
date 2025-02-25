@@ -54,3 +54,85 @@ ProjectItem *ProjectListModel::createNewProject()
 
     return &m_projects.last();
 }
+
+bool ProjectListModel::removeProject(const ProjectItem &project)
+{
+    for(int i = 0; i < m_projects.size(); ++i){
+        if(m_projects[i].path() == project.path() && m_projects[i].name() == project.name()){
+            beginRemoveRows(QModelIndex(), i, i);
+            m_projects.removeAt(i);
+            endRemoveRows();
+            return true;
+        }
+    }
+    return false;
+}
+
+void ProjectListModel::setSortRole(SortRole role)
+{
+    if (m_sortRole != role) {
+        m_sortRole = role;
+        applySort();  // 当排序角色改变时重新排序
+    }
+}
+
+QList<ProjectItem> ProjectListModel::getSortedProjects() const
+{
+    QList<ProjectItem> sortedList = m_projects;
+
+    switch (m_sortRole) {
+    case ByName:
+        std::sort(sortedList.begin(), sortedList.end(), [](const ProjectItem &a, const ProjectItem &b) {
+            return a.name().toLower() < b.name().toLower();  // 不区分大小写
+        });
+        break;
+
+    case BySize:
+        std::sort(sortedList.begin(), sortedList.end(), [](const ProjectItem &a, const ProjectItem &b) {
+            return a.size() > b.size();  // 从大到小排序
+        });
+        break;
+
+    case RecentUsed:
+    default:
+        // 现有顺序就是最近使用顺序，
+        std::sort(sortedList.begin(), sortedList.end(), [](const ProjectItem &a, const ProjectItem &b) {
+            return a.lastEditTime() > b.lastEditTime();  // 最近使用的排在前面
+        });
+        break;
+    }
+
+    return sortedList;
+}
+
+void ProjectListModel::applySort()
+{
+    // 如果列表为空，无需排序
+    if (m_projects.isEmpty())
+        return;
+
+    // 获取排序后的列表
+    QList<ProjectItem> newOrder = getSortedProjects();
+
+    // 检查是否有顺序变化
+    bool orderChanged = false;
+    if (m_projects.size() == newOrder.size()) {
+        for (int i = 0; i < m_projects.size(); ++i) {
+            if (!(m_projects[i] == newOrder[i])) {
+                orderChanged = true;
+                break;
+            }
+        }
+    } else {
+        orderChanged = true;
+    }
+
+    // 如果顺序没变，就不需要更新
+    if (!orderChanged)
+        return;
+
+    // 更新模型数据
+    beginResetModel();
+    m_projects = newOrder;
+    endResetModel();
+}

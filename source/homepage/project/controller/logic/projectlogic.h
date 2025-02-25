@@ -3,10 +3,10 @@
 
 #include <QObject>
 #include <QDebug>
+#include "../../models/datamodel/projectlistmodel.h"
 #include "global_h.h"
 
 class GalleryView;
-class ProjectListModel;
 class ProjectItem;
 
 class PROJECT_EXPORT ProjectLogic : public QObject
@@ -21,6 +21,8 @@ public:
 public slots:
     void createNewProject();
     void openProject(const ProjectItem& project);  // 接收打开项目信号
+    void deleteProject(const ProjectItem& project);  // 接收删除项目信号
+    void sortProjects(ProjectListModel::SortRole sortRole);
 
 signals:
     void projectOpened(const ProjectItem& project);  // 发送给主窗口信号

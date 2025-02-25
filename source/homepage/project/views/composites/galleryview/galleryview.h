@@ -21,11 +21,15 @@ public:
     ~GalleryView();
 
     void addProjectCard(ProjectCard *card);
-    void onProjectAdded(const ProjectItem &project); //新增项目后
+    void onProjectAdded(const ProjectItem &project); //新增项目后视图更新
+    void onProjectRemoved(const ProjectItem &project); //删除项目后视图更新
+    void sortCards(const QList<ProjectItem> &sortedProjects); //排序后视图更新
+
     void clear();
 
 signals:
-    void projectCardClicked(const ProjectItem& project);  // 新增信号
+    void projectCardClicked(const ProjectItem& project);  // 点击信号
+    void projectCardDelete(const ProjectItem& project);  // 点击信号
 
 public:
     ProjectCard *m_addCard;

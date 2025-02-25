@@ -18,6 +18,7 @@ ProjectCard::ProjectCard(QWidget *parent) :
 ProjectCard::ProjectCard(const ProjectItem &item, QWidget *parent):
     QWidget(parent),
     ui(new Ui::ProjectCard),
+    m_plusIcon(nullptr),
     m_isCreateCard(false)
 {
     ui->setupUi(this);
@@ -27,6 +28,7 @@ ProjectCard::ProjectCard(const ProjectItem &item, QWidget *parent):
     //设置
     ui->projectNameLabel->setText(item.name());
     ui->projectPathLabel->setText(item.path());
+    ui->lastModifiedLabel->setText(item.lastEditTime().toString("yyyy-MM-dd hh:mm:ss"));
 }
 
 ProjectCard::~ProjectCard()
@@ -44,13 +46,29 @@ bool ProjectCard::isCreateCard() const
     return m_isCreateCard;
 }
 
+QString ProjectCard::projectPath() const
+{
+    return ui->projectPathLabel->text();
+}
+
+QString ProjectCard::projectName() const
+{
+    return ui->projectNameLabel->text();
+}
+
+QString ProjectCard::uniqueId() const
+{
+    return ui->projectNameLabel->text();
+}
+
 void ProjectCard::enterEvent(QEvent *event)
 {
     ui->mainWidget->setStyleSheet("QWidget#mainWidget {border: 1px solid; background-color: #a6c1d4; border-radius: 10px;} QWidget#imageContainer {border: 1px solid; background-color: #a6c1d4; border-radius: 10px;} ");
     qDebug() << "移入";
-    updatePlusIconPosition();
-    if (m_plusIcon)
+    if (m_plusIcon){
+        updatePlusIconPosition();
         m_plusIcon->show(); // 显示加号
+    }
     QWidget::enterEvent(event);
 }
 
@@ -115,3 +133,9 @@ void ProjectCard::updatePlusIconPosition()
         m_plusIcon->setGeometry(x, y, iconSize.width(), iconSize.height());
     }
 }
+
+void ProjectCard::on_deleteButton_clicked()
+{
+    emit cardDelete();
+}
+

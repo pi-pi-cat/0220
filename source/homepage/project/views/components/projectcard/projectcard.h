@@ -23,16 +23,23 @@ public:
     ~ProjectCard();
     void setIsCreateCard(bool isCreate);  // 新增方法
     bool isCreateCard() const;  // 新增方法
+    QString projectPath() const;
+    QString projectName() const;
+    QString uniqueId() const;
 
 signals:
     void cardClicked();
     void cardCreate();
+    void cardDelete();
 
 protected:
     // 重写鼠标进入和离开事件
     void enterEvent(QEvent *event);
     void leaveEvent(QEvent *event);
     void mousePressEvent(QMouseEvent *event);
+
+private slots:
+    void on_deleteButton_clicked();
 
 private:
     Ui::ProjectCard *ui;
