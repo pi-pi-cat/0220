@@ -38,6 +38,7 @@ MainWindow::MainWindow(QWidget *parent)
     // 设置逻辑层对模型和视图的引用
     projectLogic->setProjectListModel(projectListModel);
     projectLogic->setGalleryView(galleryView);
+    projectLogic->loadInitialProjects();
 
     // 创建并初始化中介者
     ProjectMediator *projectMediator = new ProjectMediator(this);
