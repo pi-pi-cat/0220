@@ -64,6 +64,18 @@ QLayoutItem *FlowLayout::takeAt(int index)
     return nullptr;
 }
 
+void FlowLayout::insertWidget(int index, QWidget *widget)
+{
+    if (!widget)
+        return;
+
+    if (index < 0 || index > itemList.size())
+        index = itemList.size();
+
+    addChildWidget(widget);
+    itemList.insert(index, new QWidgetItem(widget)); // 根据Qt版本选择合适的方法
+}
+
 // 返回布局可扩展的方向,流式布局不支持扩展
 Qt::Orientations FlowLayout::expandingDirections() const
 {
