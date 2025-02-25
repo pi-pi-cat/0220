@@ -45,7 +45,13 @@ void GalleryView::onProjectAdded(const ProjectItem &project)
 {
     // 1. 创建新的项目卡片
     ProjectCard *card = new ProjectCard(project, ui->scrollAreaWidgetContents);
-    // 2. 添加到布局中，确保在"新建"卡片之前
+
+    // 2. 连接卡片的点击信号
+    connect(card, &ProjectCard::cardClicked, this, [this, project]() {
+        emit projectCardClicked(project);
+    });
+
+    // 3. 添加到布局中，确保在"新建"卡片之前
     addProjectCard(card);
 }
 

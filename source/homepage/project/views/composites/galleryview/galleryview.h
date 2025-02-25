@@ -6,6 +6,7 @@
 #include "../toolbars/searchtoolbar.h"
 #include "../../layouts/flowlayout.h"
 #include "../../components/projectcard/projectcard.h"
+#include "../../../models/internal/projectitem.h"
 
 namespace Ui {
 class GalleryView;
@@ -22,6 +23,9 @@ public:
     void addProjectCard(ProjectCard *card);
     void onProjectAdded(const ProjectItem &project); //新增项目后
     void clear();
+
+signals:
+    void projectCardClicked(const ProjectItem& project);  // 新增信号
 
 public:
     ProjectCard *m_addCard;

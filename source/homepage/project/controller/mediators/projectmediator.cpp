@@ -33,4 +33,12 @@ void ProjectMediator::connectSignals()
     if(card){
         connect(card, &ProjectCard::cardCreate, m_projectLogic, &ProjectLogic::createNewProject);
     }
+
+    // // 连接普通卡片的点击信号
+    // connect(m_galleryView, &GalleryView::projectCardClicked, this, [this](const ProjectItem& project) {
+    //     // TODO: 处理项目卡片点击事件
+    //     qDebug() << "Project clicked:" << project.name();
+    // });
+    // 连接普通卡片的点击信号
+    connect(m_galleryView, &GalleryView::projectCardClicked, m_projectLogic, &ProjectLogic::openProject);
 }

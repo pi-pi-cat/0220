@@ -5,7 +5,9 @@
 #include "controller/logic/projectlogic.h"
 #include "controller/mediators/projectmediator.h"
 #include "models/datamodel/projectlistmodel.h"
+#include "models/internal/projectitem.h"
 #include <QLayout>
+#include <QDebug>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -40,6 +42,9 @@ MainWindow::MainWindow(QWidget *parent)
     projectLogic->setGalleryView(galleryView);
     projectLogic->loadInitialProjects();
 
+    // 连接项目打开信号
+    connect(projectLogic, &ProjectLogic::projectOpened, this, &MainWindow::onProjectOpened);
+
     // 创建并初始化中介者
     ProjectMediator *projectMediator = new ProjectMediator(this);
     projectMediator->initialize(galleryView, projectLogic, projectListModel);
@@ -48,5 +53,10 @@ MainWindow::MainWindow(QWidget *parent)
 MainWindow::~MainWindow()
 {
     delete ui;
+}
+
+void MainWindow::onProjectOpened(const ProjectItem &project)
+{
+    qDebug() << "主函数打开新窗口";
 }
 

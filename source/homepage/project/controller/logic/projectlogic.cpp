@@ -1,5 +1,6 @@
 #include "projectlogic.h"
 #include "../../models/datamodel/projectlistmodel.h"
+#include "../../models/internal/projectitem.h"
 #include "../../views/composites/galleryview/galleryview.h"
 
 ProjectLogic::ProjectLogic(QObject *parent) : QObject(parent),
@@ -29,6 +30,15 @@ void ProjectLogic::createNewProject()
             m_galleryView->onProjectAdded(*newProject);
         }
     }
+}
+
+void ProjectLogic::openProject(const ProjectItem &project)
+{
+    // 这里处理打开项目的逻辑
+    qDebug() << "Opening project:" << project.name();
+
+    // 发出信号通知其他组件（比如主窗口）需要打开新界面
+    emit projectOpened(project);
 }
 
 void ProjectLogic::loadInitialProjects()

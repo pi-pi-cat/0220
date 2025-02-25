@@ -2,10 +2,12 @@
 #define PROJECTLOGIC_H
 
 #include <QObject>
+#include <QDebug>
 #include "global_h.h"
 
 class GalleryView;
 class ProjectListModel;
+class ProjectItem;
 
 class PROJECT_EXPORT ProjectLogic : public QObject
 {
@@ -18,6 +20,10 @@ public:
 
 public slots:
     void createNewProject();
+    void openProject(const ProjectItem& project);  // 接收打开项目信号
+
+signals:
+    void projectOpened(const ProjectItem& project);  // 发送给主窗口信号
 
 private:
     // 对模型和视图的引用
