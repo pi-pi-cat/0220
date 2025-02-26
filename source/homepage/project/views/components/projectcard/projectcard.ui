@@ -166,7 +166,6 @@ border-radius: 10px;</string>
           <property name="font">
            <font>
             <pointsize>11</pointsize>
-            <weight>75</weight>
             <bold>true</bold>
            </font>
           </property>
@@ -174,7 +173,7 @@ border-radius: 10px;</string>
            <string notr="true"/>
           </property>
           <property name="text">
-           <string>项目名称</string>
+           <string>新建工程</string>
           </property>
           <property name="indent">
            <number>10</number>
@@ -258,7 +257,7 @@ border-radius: 10px;</string>
          <string notr="true">color: #666666;</string>
         </property>
         <property name="text">
-         <string>文件路径：</string>
+         <string/>
         </property>
         <property name="wordWrap">
          <bool>true</bool>
@@ -279,7 +278,7 @@ border-radius: 10px;</string>
          <string notr="true">color: #666666;</string>
         </property>
         <property name="text">
-         <string>修改时间：</string>
+         <string/>
         </property>
         <property name="indent">
          <number>10</number>

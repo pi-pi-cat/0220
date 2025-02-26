@@ -12,8 +12,11 @@ HEADERS += \
     controller/logic/projectlogic.h \
     controller/mediators/projectmediator.h \
     models/datamodel/projectlistmodel.h \
+    models/internal/deviceinfo.h \
     models/internal/projectitem.h \
+    models/persistence/configfileutils.h \
     models/persistence/projectdatasaver.h \
+    models/persistence/projectxmlutils.h \
     views/components/leftpanel/leftpanel.h \
     views/components/projectcard/projectcard.h \
     views/composites/galleryview/galleryview.h \
@@ -24,8 +27,11 @@ SOURCES += \
     controller/logic/projectlogic.cpp \
     controller/mediators/projectmediator.cpp \
     models/datamodel/projectlistmodel.cpp \
+    models/internal/deviceinfo.cpp \
     models/internal/projectitem.cpp \
+    models/persistence/configfileutils.cpp \
     models/persistence/projectdatasaver.cpp \
+    models/persistence/projectxmlutils.cpp \
     views/components/leftpanel/leftpanel.cpp \
     views/components/projectcard/projectcard.cpp \
     views/composites/galleryview/galleryview.cpp \

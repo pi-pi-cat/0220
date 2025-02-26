@@ -77,3 +77,13 @@ bool ProjectItem::operator==(const ProjectItem &other) const
 {
     return m_path == other.m_path && m_name == other.m_name;
 }
+
+int ProjectItem::getDeivceCount() const
+{
+    return m_deviceCount;
+}
+
+void ProjectItem::setDeviceCount(const int &count)
+{
+    m_deviceCount = count;
+}
