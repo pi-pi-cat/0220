@@ -22,15 +22,6 @@ ProjectItem *ProjectXmlUtils::parseProjectFile(const QString &xmlFilePath)
 
     //TODO 加入Device 和 修改时间
 
-    // Count the number of devices
-    int deviceCount = 0;
-    QDomElement deviceElement = root.firstChildElement("device");
-    while (!deviceElement.isNull()) {
-        deviceCount++;
-        deviceElement = deviceElement.nextSiblingElement("device");
-    }
-
-    projectItem->setDeviceCount(deviceCount);
     return projectItem;
 }
 

@@ -82,7 +82,7 @@ void ProjectLogic::loadInitialProjects()
         // // 更新视图
         // m_galleryView->onProjectAdded(*project1);
         // m_galleryView->onProjectAdded(*project2);
-        QList<QString> projectPaths = ConfigFileUtils::getRecentProjectPaths("/Users/yxf/Documents/QtOnline/0220/files/recent.ini");//TODO 需要修改
+        QList<QString> projectPaths = ConfigFileUtils::getRecentProjectPaths("C:/Users/yuexiaofeng/Documents/0220/files/recent.ini");//TODO 需要修改
         for(const QString& projectPath : projectPaths){
             ProjectItem* item = ProjectXmlUtils::parseProjectFile(projectPath);
             if(item){

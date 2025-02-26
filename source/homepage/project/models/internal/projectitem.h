@@ -6,6 +6,7 @@
 #include <QFileInfo>
 #include <QDir>
 #include "global_h.h"
+#include "../datamodel/devicelistmodel.h"
 
 class PROJECT_EXPORT ProjectItem {
 public:
@@ -31,15 +32,18 @@ public:
     bool operator==(const ProjectItem &other) const;
 
     //获取设备数量
-    int getDeivceCount() const;
-    void setDeviceCount(const int &count);
+    int deviceCount() const;
+
+    // 获取设备模型
+    DeviceListModel* deviceModel() const;
+    void setDeviceModel(DeviceListModel* deviceModel);
 
 private:
     QString m_name;
     QString m_path;
     QDateTime m_lastEditTime;
     QStringList m_thumbnailPaths;  // 存储4个缩略图的路径
-    int m_deviceCount;
+    DeviceListModel* m_deviceModel;
 };
 
 #endif // PROJECTITEM_H

@@ -11,6 +11,7 @@ HEADERS += \
     global_h.h \
     controller/logic/projectlogic.h \
     controller/mediators/projectmediator.h \
+    models/datamodel/devicelistmodel.h \
     models/datamodel/projectlistmodel.h \
     models/internal/deviceinfo.h \
     models/internal/projectitem.h \
@@ -26,6 +27,7 @@ HEADERS += \
 SOURCES += \
     controller/logic/projectlogic.cpp \
     controller/mediators/projectmediator.cpp \
+    models/datamodel/devicelistmodel.cpp \
     models/datamodel/projectlistmodel.cpp \
     models/internal/deviceinfo.cpp \
     models/internal/projectitem.cpp \

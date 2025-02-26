@@ -10,7 +10,7 @@ ProjectItem::ProjectItem(const QString &name, const QString &path, const QDateTi
     m_name = name;
     m_path = path;
     m_lastEditTime = lastEditTime;
-    m_deviceCount = 0;
+    m_deviceModel = nullptr;
 }
 
 qint64 ProjectItem::size() const
@@ -79,12 +79,18 @@ bool ProjectItem::operator==(const ProjectItem &other) const
     return m_path == other.m_path && m_name == other.m_name;
 }
 
-int ProjectItem::getDeivceCount() const
+int ProjectItem::deviceCount() const
 {
-    return m_deviceCount;
+    return m_deviceModel->rowCount(); //TODO ROWCOUNT COLOUMNCOUNT
 }
 
-void ProjectItem::setDeviceCount(const int &count)
+DeviceListModel *ProjectItem::deviceModel() const
 {
-    m_deviceCount = count;
+    return m_deviceModel;
 }
+
+void ProjectItem::setDeviceModel(DeviceListModel *deviceModel)
+{
+    m_deviceModel = deviceModel;
+}
+
