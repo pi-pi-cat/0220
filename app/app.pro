@@ -1,2 +1,3 @@
 TEMPLATE = subdirs
-SUBDIRS += testapp
+SUBDIRS += testapp\
+           testDevice

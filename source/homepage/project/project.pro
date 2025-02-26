@@ -8,6 +8,7 @@ INCLUDEPATH += \
     $$PWD/views/composites/toolbars \ #为了让.ui找到 提升类
 
 HEADERS += \
+    controller/logic/devicelogic.h \
     global_h.h \
     controller/logic/projectlogic.h \
     controller/mediators/projectmediator.h \
@@ -18,6 +19,7 @@ HEADERS += \
     models/persistence/configfileutils.h \
     models/persistence/projectdatasaver.h \
     models/persistence/projectxmlutils.h \
+    views/components/devicecard/devicecard.h \
     views/components/leftpanel/leftpanel.h \
     views/components/projectcard/projectcard.h \
     views/composites/galleryview/galleryview.h \
@@ -25,6 +27,7 @@ HEADERS += \
     views/layouts/flowlayout.h
 
 SOURCES += \
+    controller/logic/devicelogic.cpp \
     controller/logic/projectlogic.cpp \
     controller/mediators/projectmediator.cpp \
     models/datamodel/devicelistmodel.cpp \
@@ -34,6 +37,7 @@ SOURCES += \
     models/persistence/configfileutils.cpp \
     models/persistence/projectdatasaver.cpp \
     models/persistence/projectxmlutils.cpp \
+    views/components/devicecard/devicecard.cpp \
     views/components/leftpanel/leftpanel.cpp \
     views/components/projectcard/projectcard.cpp \
     views/composites/galleryview/galleryview.cpp \
