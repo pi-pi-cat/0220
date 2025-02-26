@@ -22,6 +22,7 @@ HEADERS += \
     views/components/devicecard/devicecard.h \
     views/components/leftpanel/leftpanel.h \
     views/components/projectcard/projectcard.h \
+    views/composites/devicegallery/devicegalleryview.h \
     views/composites/galleryview/galleryview.h \
     views/composites/toolbars/searchtoolbar.h \
     views/layouts/flowlayout.h
@@ -40,6 +41,7 @@ SOURCES += \
     views/components/devicecard/devicecard.cpp \
     views/components/leftpanel/leftpanel.cpp \
     views/components/projectcard/projectcard.cpp \
+    views/composites/devicegallery/devicegalleryview.cpp \
     views/composites/galleryview/galleryview.cpp \
     views/composites/toolbars/searchtoolbar.cpp \
     views/layouts/flowlayout.cpp

@@ -32,7 +32,7 @@ void GalleryView::addProjectCard(ProjectCard *card)
     if (card) {
         // 如果是添加普通项目卡片，需要将其插入到新建卡片之前
         if (!card->isCreateCard()) {
-            int lastIndex = m_flowLayout->count() - 1;
+            int lastIndex = m_flowLayout->count() - 1; //TODO 检查索引是否越界
             m_flowLayout->insertWidget(lastIndex, card);
         } else {
             m_flowLayout->addWidget(card);
