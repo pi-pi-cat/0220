@@ -11,7 +11,7 @@ class ConfigFileUtils
 {
 public:
 
-    static QMap<QString, QString> getRecentProjectPaths(const QString& configFilePath = "recent.ini");
+    static QList<QString> getRecentProjectPaths(const QString& configFilePath = "recent.ini");
     static bool addRecentProject(const QString& projectKey, const QString& projectPath,
                                  const QString& configFilePath = "recent.ini");
 

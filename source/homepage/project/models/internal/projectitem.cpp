@@ -10,6 +10,7 @@ ProjectItem::ProjectItem(const QString &name, const QString &path, const QDateTi
     m_name = name;
     m_path = path;
     m_lastEditTime = lastEditTime;
+    m_deviceCount = 0;
 }
 
 qint64 ProjectItem::size() const

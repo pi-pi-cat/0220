@@ -21,7 +21,9 @@ public:
     QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const;
 
     // 添加项目
-    ProjectItem* createNewProject();
+    ProjectItem* createNewProject(const QString& name = QString(), const QString& path=QString());
+    // 添加已有的项目
+    void addExistProject(const ProjectItem& item);
     // 移除项目
     bool removeProject(const ProjectItem &project);
 

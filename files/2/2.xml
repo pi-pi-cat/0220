@@ -1,0 +1,43 @@
+<project name="2">
+    <!-- 前4个设备节点... -->
+
+    <device name="comm_module_5">
+        <displayname>无线通信基站</displayname>
+        <creation>2025-05-01 09:15:00:500</creation>
+        <modification>2025-05-01 09:20:35:200</modification>
+        <description>5G工业物联网网关</description>
+        <status>信号测试</status>
+    </device>
+
+    <device name="power_unit_6">
+        <displayname>冗余电源系统</displayname>
+        <creation>2025-06-15 16:45:30:750</creation>
+        <modification>2025-06-15 17:00:00:000</modification>
+        <description>双路48V直流供电</description>
+        <status>待机</status>
+    </device>
+
+    <device name="vision_sensor_7">
+        <displayname>机器视觉相机</displayname>
+        <creation>2025-07-22 13:00:00:001</creation>
+        <modification>2025-07-22 13:00:05:001</modification>
+        <description>2000万像素工业相机</description>
+        <status>图像校准</status>
+    </device>
+
+    <device name="plc_controller_8">
+        <displayname>PLC主控单元</displayname>
+        <creation>2025-08-30 00:30:45:333</creation>
+        <modification>2025-08-30 00:35:55:666</modification>
+        <description>西门子S7-1500系列</description>
+        <status>编程模式</status>
+    </device>
+
+    <device name="safety_device_9">
+        <displayname>急停保护装置</displayname>
+        <creation>2025-09-10 08:00:00:000</creation>
+        <modification>2025-09-10 08:00:00:001</modification>
+        <description>ISO13849-1 PLe安全等级</description>
+        <status>联锁激活</status>
+    </device>
+</project>

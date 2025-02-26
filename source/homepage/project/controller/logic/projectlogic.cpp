@@ -1,6 +1,8 @@
 #include "projectlogic.h"
 #include "../../models/internal/projectitem.h"
 #include "../../views/composites/galleryview/galleryview.h"
+#include "../../models/persistence/configfileutils.h"
+#include "../../models/persistence/projectxmlutils.h"
 
 ProjectLogic::ProjectLogic(QObject *parent) : QObject(parent),
     m_projectListModel(nullptr),
@@ -74,11 +76,19 @@ void ProjectLogic::loadInitialProjects()
     // 这里可以添加测试数据
     if (m_projectListModel && m_galleryView) {
         // 创建一些测试项目
-        ProjectItem *project1 = m_projectListModel->createNewProject();
-        ProjectItem *project2 = m_projectListModel->createNewProject();
+        // ProjectItem *project1 = m_projectListModel->createNewProject();
+        // ProjectItem *project2 = m_projectListModel->createNewProject();
         
-        // 更新视图
-        m_galleryView->onProjectAdded(*project1);
-        m_galleryView->onProjectAdded(*project2);
+        // // 更新视图
+        // m_galleryView->onProjectAdded(*project1);
+        // m_galleryView->onProjectAdded(*project2);
+        QList<QString> projectPaths = ConfigFileUtils::getRecentProjectPaths("/Users/yxf/Documents/QtOnline/0220/files/recent.ini");//TODO 需要修改
+        for(const QString& projectPath : projectPaths){
+            ProjectItem* item = ProjectXmlUtils::parseProjectFile(projectPath);
+            if(item){
+                m_projectListModel->addExistProject(*item);
+                m_galleryView->onProjectAdded(*item);
+            }
+        }
     }
 }
