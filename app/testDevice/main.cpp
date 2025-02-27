@@ -24,7 +24,7 @@ int main(int argc, char *argv[])
     info.setDisplayName("几何构型-1");
     info.setCreationTime(QDateTime::fromString("2025-02-19 12:00:00", "yyyy-MM-dd HH:mm:ss"));
     info.setModificationTime(QDateTime::fromString("2025-02-19 12:00:00", "yyyy-MM-dd HH:mm:ss"));
-    info.setImagePath("C:/Users/yuexiaofeng/Downloads/卡片.png");
+    info.setImagePath("/Users/yxf/Documents/QtOnline/0220/files/1.jpg");
 
     DeviceCard *deviceCard = new DeviceCard(info);
     DeviceCard *deviceCard1 = new DeviceCard(info);

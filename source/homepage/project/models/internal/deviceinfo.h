@@ -3,6 +3,7 @@
 
 #include <QString>
 #include <QDateTime>
+#include <QMetaType>
 
 class DeviceInfo
 {
@@ -47,5 +48,5 @@ private:
     QString m_imagePath;
     bool m_isNewCard;
 };
-
+Q_DECLARE_METATYPE(DeviceInfo)
 #endif // DEVICEINFO_H

@@ -8,7 +8,9 @@ INCLUDEPATH += \
     $$PWD/views/composites/toolbars \ #为了让.ui找到 提升类
 
 HEADERS += \
+    controller/eventbus/eventbus.h \
     controller/logic/devicelogic.h \
+    controller/mediators/devicemediator.h \
     global_h.h \
     controller/logic/projectlogic.h \
     controller/mediators/projectmediator.h \
@@ -28,8 +30,10 @@ HEADERS += \
     views/layouts/flowlayout.h
 
 SOURCES += \
+    controller/eventbus/eventbus.cpp \
     controller/logic/devicelogic.cpp \
     controller/logic/projectlogic.cpp \
+    controller/mediators/devicemediator.cpp \
     controller/mediators/projectmediator.cpp \
     models/datamodel/devicelistmodel.cpp \
     models/datamodel/projectlistmodel.cpp \

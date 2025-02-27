@@ -13,6 +13,11 @@ ProjectItem::ProjectItem(const QString &name, const QString &path, const QDateTi
     m_deviceModel = nullptr;
 }
 
+ProjectItem::~ProjectItem()
+{
+
+}
+
 qint64 ProjectItem::size() const
 {
     // 如果路径是目录，递归计算目录大小

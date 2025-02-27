@@ -133,9 +133,9 @@ void ProjectCard::updatePlusIconPosition()
         m_plusIcon->setGeometry(x, y, iconSize.width(), iconSize.height());
     }
 }
-
 void ProjectCard::on_deleteButton_clicked()
 {
     emit cardDelete();
 }
+
 

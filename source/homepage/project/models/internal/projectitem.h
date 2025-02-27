@@ -4,6 +4,7 @@
 #include <QString>
 #include <QDateTime>
 #include <QFileInfo>
+#include <QMetaType>
 #include <QDir>
 #include "global_h.h"
 #include "../datamodel/devicelistmodel.h"
@@ -12,7 +13,7 @@ class PROJECT_EXPORT ProjectItem {
 public:
     ProjectItem();
     ProjectItem(const QString& name, const QString& path, const QDateTime& lastEditTime=QDateTime::currentDateTime());
-
+    ~ProjectItem();
     //获取项目名称
     QString name() const;
     void setName(const QString &name);
@@ -45,5 +46,5 @@ private:
     QStringList m_thumbnailPaths;  // 存储4个缩略图的路径
     DeviceListModel* m_deviceModel;
 };
-
+Q_DECLARE_METATYPE(ProjectItem)
 #endif // PROJECTITEM_H

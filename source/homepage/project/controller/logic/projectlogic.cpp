@@ -3,6 +3,7 @@
 #include "../../views/composites/galleryview/galleryview.h"
 #include "../../models/persistence/configfileutils.h"
 #include "../../models/persistence/projectxmlutils.h"
+#include "../eventbus/eventbus.h"
 
 ProjectLogic::ProjectLogic(QObject *parent) : QObject(parent),
     m_projectListModel(nullptr),
@@ -36,7 +37,12 @@ void ProjectLogic::createNewProject()
 void ProjectLogic::openProject(const ProjectItem &project)
 {
     // 这里处理打开项目的逻辑
-    qDebug() << "Opening project:" << project.name();
+    qDebug() << "打开项目:" << project.name();
+
+    // 通过事件总线通知DeviceMediator
+    QVariant projectData;
+    projectData.setValue(project);
+    EventBus::getInstance().publish("OpenDeviceView", projectData);
 
     // 发出信号通知其他组件（比如主窗口）需要打开新界面
     emit projectOpened(project);
@@ -82,7 +88,7 @@ void ProjectLogic::loadInitialProjects()
         // // 更新视图
         // m_galleryView->onProjectAdded(*project1);
         // m_galleryView->onProjectAdded(*project2);
-        QList<QString> projectPaths = ConfigFileUtils::getRecentProjectPaths("C:/Users/yuexiaofeng/Documents/0220/files/recent.ini");//TODO 需要修改
+        QList<QString> projectPaths = ConfigFileUtils::getRecentProjectPaths("/Users/yxf/Documents/QtOnline/0220/files/recent.ini");//TODO 需要修改
         for(const QString& projectPath : projectPaths){
             ProjectItem* item = ProjectXmlUtils::parseProjectFile(projectPath);
             if(item){

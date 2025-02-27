@@ -1,4 +1,5 @@
 #include "devicegalleryview.h"
+#include <QDebug>
 
 
 DeviceGalleryView::DeviceGalleryView(QWidget *parent) : QWidget(parent)
@@ -42,24 +43,51 @@ void DeviceGalleryView::addNewDeviceCard(NewDeviceCard *card)
 
 void DeviceGalleryView::onDeviceAdded(const DeviceInfo &device)
 {
-    // 1. 创建新的项目卡片
+    // 创建新的设备卡片
     DeviceCard *card = new DeviceCard(device, m_area);
 
-    // 2. 连接卡片的点击信号
-//    connect(card, &ProjectCard::cardClicked, this, [this, project]() {
-//        emit projectCardClicked(project);
-//    });
-//    connect(card, &ProjectCard::cardDelete, this, [this, project](){
-//        emit projectCardDelete(project);
-//    });
+    // 连接卡片信号
+    connect(card, &DeviceCard::cardClicked, this, [this, device]() {
+        emit deviceCardClicked(device);
+    });
 
-    // 3. 添加到布局中，确保在"新建"卡片之前
+    connect(card, &DeviceCard::deleteClicked, this, [this, device]() {
+        emit deviceCardDelete(device);
+    });
+
+    connect(card, &DeviceCard::editClicked, this, [this, device]() {
+        // 可以添加编辑设备信号
+        emit deviceCardClicked(device); // 暂时使用点击信号
+    });
+
+    connect(card, &DeviceCard::copyClicked, this, [this, device]() {
+        // 可以添加复制设备功能
+        qDebug() << "复制设备:" << device.displayName();
+    });
+
+    // 添加到布局
     addDeviceCard(card);
 }
 
 void DeviceGalleryView::onDeviceRemoved(const DeviceInfo &device)
 {
+    for (int i = 0; i < m_flowLayout->count(); ++i) {
+        DeviceCard *card = qobject_cast<DeviceCard*>(m_flowLayout->itemAt(i)->widget());
+        if (card && card->getDeviceInfo().name() == device.name()) {
+            // 从布局中移除
+            QLayoutItem *item = m_flowLayout->takeAt(i);
+            if (item->widget()) {
+                item->widget()->deleteLater();
+            }
+            delete item;
 
+            // 更新布局
+            m_flowLayout->invalidate();
+            m_area->updateGeometry();
+            m_area->layout()->activate();
+            break;
+        }
+    }
 }
 
 void DeviceGalleryView::clear()

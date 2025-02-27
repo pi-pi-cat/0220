@@ -5,8 +5,8 @@ GUIE_SOURCE_TREE = $$PWD
 #    GUIE_BUILD_TREE = $$OUT_PWD
 #    GUIE_BUILD_TREE ~= s,^$$re_escape($$subdir),,
 #}
-#GUIE_BUILD_TREE = /Users/yxf/Documents/QtOnline/0220/build/arm_darwin_generic_mach_o_32bit-Debug
-GUIE_BUILD_TREE = C:\Users\yuexiaofeng\Documents\build-0222-Desktop_Qt_5_12_12_MinGW_64_bit-Debug
+GUIE_BUILD_TREE = /Users/yxf/Documents/QtOnline/0220/build/arm_darwin_generic_mach_o_32bit-Debug
+# GUIE_BUILD_TREE = C:\Users\yuexiaofeng\Documents\build-0222-Desktop_Qt_5_12_12_MinGW_64_bit-Debug
 GUIE_LIBRARY_BASENAME = lib
 GUIE_APP_PATH = $$GUIE_BUILD_TREE/bin/guie
 GUIE_LIBRARY_PATH = $$GUIE_BUILD_TREE/$$GUIE_LIBRARY_BASENAME
