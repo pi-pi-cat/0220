@@ -7,7 +7,6 @@
 
 class ProjectItem;
 class DeviceInfo;
-class GalleryView;
 class DeviceGalleryView;
 class ProjectLogic;
 class DeviceLogic;
@@ -15,7 +14,7 @@ class ProjectMediator;
 class DeviceMediator;
 class ProjectListModel;
 class DeviceListModel;
-class LeftPanel;
+class ProjectGalleryView;
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -55,8 +54,7 @@ private:
     QWidget *m_projectWidget;
     QWidget *m_deviceWidget;
     QWidget *m_deviceDetailWidget;
-    LeftPanel *m_leftPanel;
-    GalleryView *m_projectGalleryView;
+    ProjectGalleryView *m_projectGalleryView;
     DeviceGalleryView *m_deviceGalleryView;
 
     // 模型

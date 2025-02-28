@@ -1,8 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-#include "views/components/leftpanel/leftpanel.h"
-#include "views/composites/galleryview/galleryview.h"
 #include "views/composites/devicegallery/devicegalleryview.h"
+#include "views/composites/projectgallery/projectgalleryview.h"
 #include "controller/logic/projectlogic.h"
 #include "controller/logic/devicelogic.h"
 #include "controller/mediators/projectmediator.h"
@@ -56,18 +55,7 @@ void MainWindow::setupUI()
     QHBoxLayout* projectLayout = new QHBoxLayout(m_projectWidget);
     projectLayout->setSpacing(0);
     projectLayout->setContentsMargins(0, 0, 0, 0);
-
-    // 创建左侧面板
-    m_leftPanel = new LeftPanel(this);
-    m_leftPanel->setFixedWidth(150);
-    m_leftPanel->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Preferred);
-
-    // 创建项目画廊视图
-    m_projectGalleryView = new GalleryView(this);
-    m_projectGalleryView->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);
-
-    // 添加部件到项目布局
-    projectLayout->addWidget(m_leftPanel);
+    m_projectGalleryView = new ProjectGalleryView(this);
     projectLayout->addWidget(m_projectGalleryView);
 
     // 创建设备视图

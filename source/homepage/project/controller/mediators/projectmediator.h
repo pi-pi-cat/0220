@@ -6,7 +6,7 @@
 #include "global_h.h"
 
 class ProjectLogic;
-class GalleryView;
+class ProjectGalleryView;
 class ProjectListModel;
 class ProjectCard;
 
@@ -17,12 +17,16 @@ public:
     explicit ProjectMediator(QObject *parent = nullptr);
 
     // 初始化方法，用于设置连接
-    void initialize(GalleryView *galleryView, ProjectLogic *projectLogic, ProjectListModel *projectListModel);
+    void initialize(ProjectGalleryView *galleryView, ProjectLogic *projectLogic, ProjectListModel *projectListModel);
 
+private slots:
+    void handleOpenProject();
+    void handleSortOrderChanged(int index);
+    void handleSearchTextChanged(const QString &text);
 private:
     void connectSignals();
 
-    GalleryView *m_galleryView;
+    ProjectGalleryView *m_galleryView;
     ProjectLogic *m_projectLogic;
     ProjectListModel *m_projectListModel;
 

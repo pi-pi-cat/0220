@@ -1,6 +1,6 @@
 #include "projectlogic.h"
 #include "../../models/internal/projectitem.h"
-#include "../../views/composites/galleryview/galleryview.h"
+#include "../../views/composites/projectgallery/projectgalleryview.h"
 #include "../../models/persistence/configfileutils.h"
 #include "../../models/persistence/projectxmlutils.h"
 #include "../eventbus/eventbus.h"
@@ -16,7 +16,7 @@ void ProjectLogic::setProjectListModel(ProjectListModel *model)
     m_projectListModel = model;
 }
 
-void ProjectLogic::setGalleryView(GalleryView *view)
+void ProjectLogic::setGalleryView(ProjectGalleryView *view)
 {
     m_galleryView = view;
 }

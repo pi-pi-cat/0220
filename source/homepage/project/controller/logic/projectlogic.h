@@ -6,7 +6,7 @@
 #include "../../models/datamodel/projectlistmodel.h"
 #include "global_h.h"
 
-class GalleryView;
+class ProjectGalleryView;
 class ProjectItem;
 
 class PROJECT_EXPORT ProjectLogic : public QObject
@@ -15,7 +15,7 @@ class PROJECT_EXPORT ProjectLogic : public QObject
 public:
     explicit ProjectLogic(QObject *parent = nullptr);
     void setProjectListModel(ProjectListModel *model);
-    void setGalleryView(GalleryView *view);
+    void setGalleryView(ProjectGalleryView *view);
     void loadInitialProjects();
 
 public slots:
@@ -30,7 +30,7 @@ signals:
 private:
     // 对模型和视图的引用
     ProjectListModel* m_projectListModel;
-    GalleryView* m_galleryView;
+    ProjectGalleryView* m_galleryView;
 
 
 };
