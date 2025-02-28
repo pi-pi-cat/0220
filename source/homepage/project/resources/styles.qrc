@@ -1,5 +1,5 @@
 <RCC>
     <qresource prefix="/styles">
-        <file alias="leftpanel.qss">qss/components/leftpanel.qss</file>
+        <file alias="projectcard.qss">qss/components/projectcard.qss</file>
     </qresource>
 </RCC>

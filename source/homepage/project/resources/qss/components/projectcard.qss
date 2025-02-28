@@ -1,0 +1,53 @@
+#mainWidget {
+    border: 1px solid;
+    background-color: #f7faff;
+    border-radius: 10px;
+}
+
+#mainWidget:hover {
+    border: 1px solid;
+    background-color: #a6c1d4;
+    border-radius: 10px;
+}
+
+#imageContainer {
+    border: 1px solid;
+    background-color: #f7faff;
+    border-radius: 10px;
+}
+
+#imageContainer:hover {
+    border: 1px solid;
+    background-color: #a6c1d4;
+    border-radius: 10px;
+}
+
+#imageLabel1, #imageLabel2, #imageLabel3, #imageLabel4 {
+    background-color: #a0f0f0;
+    border-radius: 10px;
+}
+
+#projectNameLabel {
+    font-weight: bold;
+    font-size: 11pt;
+}
+
+#projectPathLabel, #lastModifiedLabel {
+    color: #666666;
+    font-size: 9pt;
+}
+
+#editButton, #deleteButton {
+    border: none;
+}
+
+/* Plus icon for create card */
+#plusIcon {
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    background-color: #0d6baf;
+    border-radius: 20px;
+    text-align: center;
+    qproperty-alignment: AlignCenter;
+}

@@ -4,14 +4,10 @@
 #include <QWidget>
 #include <QMouseEvent>
 #include <QLabel>
+#include <QPushButton>
 #include "global_h.h"
 
-
 class ProjectItem;
-
-namespace Ui {
-class ProjectCard;
-}
 
 class PROJECT_EXPORT ProjectCard : public QWidget
 {
@@ -19,10 +15,11 @@ class PROJECT_EXPORT ProjectCard : public QWidget
 
 public:
     explicit ProjectCard(QWidget *parent = nullptr);
-    explicit ProjectCard(const ProjectItem& item, QWidget *parent = nullptr);  // 新增构造函数
+    explicit ProjectCard(const ProjectItem& item, QWidget *parent = nullptr);
     ~ProjectCard();
-    void setIsCreateCard(bool isCreate);  // 新增方法
-    bool isCreateCard() const;  // 新增方法
+
+    void setIsCreateCard(bool isCreate);
+    bool isCreateCard() const;
     QString projectPath() const;
     QString projectName() const;
     QString uniqueId() const;
@@ -42,11 +39,23 @@ private slots:
     void on_deleteButton_clicked();
 
 private:
-    Ui::ProjectCard *ui;
-    QLabel *m_plusIcon;
-    bool m_isCreateCard;  // 判断自己是否新增卡片对象
+    void setupUi();
+    void loadStyleSheet();
     void setupPlusIcon();
     void updatePlusIconPosition();
+
+    // UI components
+    QLabel *m_projectNameLabel;
+    QLabel *m_projectPathLabel;
+    QLabel *m_lastModifiedLabel;
+    QPushButton *m_editButton;
+    QPushButton *m_deleteButton;
+    QWidget *m_mainWidget;
+    QWidget *m_imageContainer;
+    QLabel *m_imageLabels[4];
+
+    // State
+    QLabel *m_plusIcon;
+    bool m_isCreateCard;
 };
 #endif // PROJECTCARD_H
-

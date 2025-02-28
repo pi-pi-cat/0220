@@ -5,7 +5,6 @@ DEFINES += PROJECT_LIBRARY
 INCLUDEPATH += \
     $$PWD \
     $$PWD/.. \
-    $$PWD/views/composites/toolbars \ #为了让.ui找到 提升类
 
 HEADERS += \
     controller/eventbus/eventbus.h \
@@ -46,8 +45,8 @@ SOURCES += \
     views/composites/projectgallery/projectgalleryview.cpp \
     views/layouts/flowlayout.cpp
 
-FORMS += \
-    views/components/projectcard/projectcard.ui \
+# FORMS += \
+#     views/components/projectcard/projectcard.ui \
 
 RESOURCES += \
     resources/styles.qrc
