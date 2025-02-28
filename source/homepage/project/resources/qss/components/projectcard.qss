@@ -41,6 +41,11 @@
     border: none;
 }
 
+#editButton:hover, #deleteButton:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 3px;
+}
+
 /* Plus icon for create card */
 #plusIcon {
     color: white;

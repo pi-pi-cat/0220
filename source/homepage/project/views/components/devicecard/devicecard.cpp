@@ -1,6 +1,5 @@
 #include "devicecard.h"
 #include "../../../models/internal/deviceinfo.h"
-
 #include <QPixmap>
 #include <QEnterEvent>
 #include <QStyle>
@@ -108,29 +107,19 @@ void DeviceCard::setupUI()
     mainLayout->addWidget(m_containerWidget);
 
     // Apply stylesheet
-    QString styleSheet = QString(
-        "#containerWidget {"
-        "   background-color: #0d6bb1;"
-        "   border: 1px solid #306d9a;"
-        "   border-radius: 10px;"
-        "}"
-        "#containerWidget:hover {"
-        "   background-color: #095a98;"
-        "}"
-        "#nameLabel, #creationTimeLabel, #modificationTimeLabel {"
-        "   color: white;"
-        "}"
-        "#copyButton, #editButton, #deleteButton {"
-        "   background-color: transparent;"
-        "   color: white;"
-        "   border: 1px solid #306d9a;"
-        "}"
-        "#copyButton:hover, #editButton:hover, #deleteButton:hover {"
-        "   background-color: #095a98;"
-        "}"
-    );
+    // Load stylesheet
+    loadStyleSheet();
+}
 
-    this->setStyleSheet(styleSheet);
+void DeviceCard::loadStyleSheet()
+{
+    // Load styles from QSS file
+    QFile file(":/styles/devicecard.qss");
+    if (file.open(QFile::ReadOnly | QFile::Text)) {
+        QString styleSheet = QLatin1String(file.readAll());
+        setStyleSheet(styleSheet);
+        file.close();
+    }
 }
 
 void DeviceCard::setupConnections()
@@ -213,27 +202,13 @@ void NewDeviceCard::setupUI()
 
     mainLayout->addWidget(m_containerWidget);
 
-    // Apply stylesheet
-    QString styleSheet = QString(
-        "#containerWidget {"
-        "   background-color: #0d6bb1;"
-        "   border: 1px solid #306d9a;"
-        "}"
-        "#containerWidget:hover {"
-        "   background-color: #095a98;"
-        "}"
-        "#plusLabel {"
-        "   color: white;"
-        "}"
-        "#newButton {"
-        "   background-color: black;"
-        "   color: white;"
-        "   border: none;"
-        "   padding: 5px 15px;"
-        "}"
-    );
 
-    this->setStyleSheet(styleSheet);
+    QFile file(":/styles/devicecard.qss");
+    if (file.open(QFile::ReadOnly | QFile::Text)) {
+        QString styleSheet = QLatin1String(file.readAll());
+        setStyleSheet(styleSheet);
+        file.close();
+    }
 }
 
 bool NewDeviceCard::event(QEvent *event)

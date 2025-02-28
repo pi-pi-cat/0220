@@ -14,7 +14,6 @@
 
 ProjectCard::ProjectCard(QWidget *parent) :
     QWidget(parent),
-    m_isCreateCard(true),
     m_projectNameLabel(nullptr),
     m_projectPathLabel(nullptr),
     m_lastModifiedLabel(nullptr),
@@ -22,7 +21,8 @@ ProjectCard::ProjectCard(QWidget *parent) :
     m_deleteButton(nullptr),
     m_mainWidget(nullptr),
     m_imageContainer(nullptr),
-    m_imageLabels{nullptr, nullptr, nullptr, nullptr}
+    m_imageLabels{nullptr, nullptr, nullptr, nullptr},
+    m_isCreateCard(true)
 {
     setAttribute(Qt::WA_Hover);
     setAutoFillBackground(true);
@@ -32,8 +32,6 @@ ProjectCard::ProjectCard(QWidget *parent) :
 
 ProjectCard::ProjectCard(const ProjectItem &item, QWidget *parent):
     QWidget(parent),
-    m_plusIcon(nullptr),
-    m_isCreateCard(false),
     m_projectNameLabel(nullptr),
     m_projectPathLabel(nullptr),
     m_lastModifiedLabel(nullptr),
@@ -41,7 +39,9 @@ ProjectCard::ProjectCard(const ProjectItem &item, QWidget *parent):
     m_deleteButton(nullptr),
     m_mainWidget(nullptr),
     m_imageContainer(nullptr),
-    m_imageLabels{nullptr, nullptr, nullptr, nullptr}
+    m_imageLabels{nullptr, nullptr, nullptr, nullptr},
+    m_plusIcon(nullptr),
+    m_isCreateCard(false)
 {
     setAttribute(Qt::WA_Hover);
     setAutoFillBackground(true);
@@ -174,11 +174,7 @@ void ProjectCard::setupUi()
 
 void ProjectCard::loadStyleSheet()
 {
-    // Apply default styles
-    m_mainWidget->setStyleSheet("QWidget#mainWidget {border: 1px solid; background-color: #f7faff; border-radius: 10px;} "
-                                "QWidget#imageContainer {border: 1px solid; background-color: #f7faff; border-radius: 10px;}");
-
-    // Load additional styles from QSS file if needed
+    // Load styles from QSS file
     QFile file(":/styles/projectcard.qss");
     if (file.open(QFile::ReadOnly | QFile::Text)) {
         QString styleSheet = QLatin1String(file.readAll());
@@ -215,38 +211,36 @@ QString ProjectCard::uniqueId() const
     return m_projectNameLabel ? m_projectNameLabel->text() : QString();
 }
 
-void ProjectCard::enterEvent(QEvent *event)
+bool ProjectCard::event(QEvent *event)
 {
-    m_mainWidget->setStyleSheet("QWidget#mainWidget {border: 1px solid; background-color: #a6c1d4; border-radius: 10px;} "
-                                "QWidget#imageContainer {border: 1px solid; background-color: #a6c1d4; border-radius: 10px;}");
-    qDebug() << "移入";
-    if (m_plusIcon) {
-        updatePlusIconPosition();
-        m_plusIcon->show(); // 显示加号
+    if (event->type() == QEvent::Enter) {
+        // Mouse enter handling
+        if (m_plusIcon) {
+            updatePlusIconPosition();
+            m_plusIcon->show(); // Show plus icon on hover
+        }
+        return true;
     }
-    QWidget::enterEvent(event);
+    else if (event->type() == QEvent::Leave) {
+        if (m_plusIcon) {
+            m_plusIcon->hide(); // Hide plus icon when not hovering
+        }
+        return true;
+    }
+    else if (event->type() == QEvent::MouseButtonPress) {
+        // Mouse click handling
+        if (m_isCreateCard) {
+            emit cardCreate();
+        } else {
+            emit cardClicked();
+        }
+        return true;
+    }
+
+    // Let the parent class handle other events
+    return QWidget::event(event);
 }
 
-void ProjectCard::leaveEvent(QEvent *event)
-{
-    m_mainWidget->setStyleSheet("QWidget#mainWidget {border: 1px solid; background-color: #f7faff; border-radius: 10px;} "
-                                "QWidget#imageContainer {border: 1px solid; background-color: #f7faff; border-radius: 10px;}");
-    qDebug() << "移出";
-    if (m_plusIcon)
-        m_plusIcon->hide(); // 隐藏加号
-    QWidget::leaveEvent(event);
-}
-
-void ProjectCard::mousePressEvent(QMouseEvent *event)
-{
-    qDebug() << "点击";
-    if (m_isCreateCard) {
-        emit cardCreate();
-    } else {
-        emit cardClicked();
-    }
-    QWidget::mousePressEvent(event);
-}
 
 void ProjectCard::setupPlusIcon()
 {
@@ -254,17 +248,7 @@ void ProjectCard::setupPlusIcon()
 
     // 设置加号文本和样式
     m_plusIcon->setFixedSize(40, 40); // 设置固定的宽度和高度（例如80px）
-    m_plusIcon->setStyleSheet(
-        "QLabel {"
-        "   color: white;"
-        "   font-size: 20px;"
-        "   font-weight: bold;"
-        "   background-color: #0d6baf;"
-        "   border-radius: 20px;" // 半径等于宽度/高度的一半
-        "   text-align: center;" // 文本居中
-        "   qproperty-alignment: AlignCenter;" // 确保+号居中显示
-        "}"
-        );
+    m_plusIcon->setObjectName("plusIcon");
     m_plusIcon->setText("+");
 
     // 初始状态隐藏

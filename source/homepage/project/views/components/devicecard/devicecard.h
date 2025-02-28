@@ -37,6 +37,7 @@ private:
     void setupUI();
     void setupConnections();
     void updateInfo(const DeviceInfo& deviceInfo);
+    void loadStyleSheet();
 
     QWidget *m_containerWidget;
     QLabel *m_nameLabel;

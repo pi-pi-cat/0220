@@ -1,0 +1,57 @@
+#containerWidget {
+    background-color: #0d6bb1;
+    border: 1px solid #306d9a;
+    border-radius: 10px;
+}
+
+#containerWidget:hover {
+    background-color: #095a98;
+}
+
+#nameLabel, #creationTimeLabel, #modificationTimeLabel {
+    color: white;
+}
+
+#copyButton, #editButton, #deleteButton {
+    background-color: transparent;
+    color: white;
+    border: 1px solid #306d9a;
+}
+
+#copyButton:hover, #editButton:hover, #deleteButton:hover {
+    background-color: #095a98;
+}
+
+/* Styles for NewDeviceCard */
+#newDeviceCard #containerWidget {
+    background-color: #0d6bb1;
+    border: 1px solid #306d9a;
+}
+
+#newDeviceCard #containerWidget:hover {
+    background-color: #095a98;
+}
+
+#newDeviceCard #plusLabel {
+    color: white;
+    font-size: 80px;
+}
+
+#newDeviceCard #newButton {
+    background-color: black;
+    color: white;
+    border: none;
+    padding: 5px 15px;
+}
+
+/* Image frame styling */
+#imageFrame {
+    background-color: white;
+    border: 1px solid #306d9a;
+    border-radius: 10px;
+}
+
+#imageLabel {
+    border: none;
+    background: transparent;
+}

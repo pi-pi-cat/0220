@@ -1,5 +1,6 @@
 <RCC>
     <qresource prefix="/styles">
         <file alias="projectcard.qss">qss/components/projectcard.qss</file>
+        <file alias="devicecard.qss">qss/components/devicecard.qss</file>
     </qresource>
 </RCC>

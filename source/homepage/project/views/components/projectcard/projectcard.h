@@ -30,10 +30,7 @@ signals:
     void cardDelete();
 
 protected:
-    // 重写鼠标进入和离开事件
-    void enterEvent(QEvent *event);
-    void leaveEvent(QEvent *event);
-    void mousePressEvent(QMouseEvent *event);
+    bool event(QEvent *event) override;
 
 private slots:
     void on_deleteButton_clicked();
