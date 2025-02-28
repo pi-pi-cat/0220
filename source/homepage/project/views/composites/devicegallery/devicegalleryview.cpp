@@ -21,10 +21,6 @@ DeviceGalleryView::DeviceGalleryView(QWidget *parent) : QWidget(parent)
     QVBoxLayout *mainLayout = new QVBoxLayout(this); // <- 新增
     mainLayout->addWidget(m_scrollArea);             // <- 新增
     setLayout(mainLayout);                           // <- 新增
-
-    // 添加"新增"卡片
-    m_addCard = new NewDeviceCard(m_area);
-    addNewDeviceCard(m_addCard);
 }
 
 void DeviceGalleryView::addDeviceCard(DeviceCard *card)
@@ -102,4 +98,10 @@ void DeviceGalleryView::clear()
         }
         delete item;
     }
+    // 添加"新增"卡片
+    if(m_addCard){
+        delete m_addCard;
+    }
+    m_addCard = new NewDeviceCard(m_area);
+    addNewDeviceCard(m_addCard);
 }
