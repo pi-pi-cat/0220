@@ -9,8 +9,9 @@
 #include <QVBoxLayout>
 #include <QHBoxLayout>
 #include <QFrame>
-#include "../../../models/internal/deviceinfo.h"
 #include "global_h.h"
+
+class DeviceInfo;
 
 class PROJECT_EXPORT DeviceCard : public QWidget {
     Q_OBJECT
@@ -21,6 +22,7 @@ public:
 
     void setDeviceInfo(const DeviceInfo& info);
     DeviceInfo getDeviceInfo() const;
+    QString deviceName() const;
 
 signals:
     void copyClicked();
@@ -34,7 +36,7 @@ protected:
 private:
     void setupUI();
     void setupConnections();
-    void updateInfo();
+    void updateInfo(const DeviceInfo& deviceInfo);
 
     QWidget *m_containerWidget;
     QLabel *m_nameLabel;
@@ -46,7 +48,6 @@ private:
     QLabel *m_modificationTimeLabel;
     QFrame *m_imageFrame;
 
-    DeviceInfo m_deviceInfo;
     int m_width;
     int m_height;
 };

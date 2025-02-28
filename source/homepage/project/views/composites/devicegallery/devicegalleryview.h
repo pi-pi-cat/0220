@@ -4,9 +4,11 @@
 #include <QWidget>
 #include <QScrollArea>
 #include "global_h.h"
-#include "../../layouts/flowlayout.h"
-#include "../../components/devicecard/devicecard.h"
-#include "../../../models/internal/deviceinfo.h"
+
+class DeviceInfo;
+class NewDeviceCard;
+class DeviceCard;
+class FlowLayout;
 
 class PROJECT_EXPORT DeviceGalleryView : public QWidget
 {

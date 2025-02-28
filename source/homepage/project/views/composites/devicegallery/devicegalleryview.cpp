@@ -1,4 +1,7 @@
 #include "devicegalleryview.h"
+#include "../../layouts/flowlayout.h"
+#include "../../components/devicecard/devicecard.h"
+#include "../../../models/internal/deviceinfo.h"
 #include <QDebug>
 
 
@@ -73,7 +76,7 @@ void DeviceGalleryView::onDeviceRemoved(const DeviceInfo &device)
 {
     for (int i = 0; i < m_flowLayout->count(); ++i) {
         DeviceCard *card = qobject_cast<DeviceCard*>(m_flowLayout->itemAt(i)->widget());
-        if (card && card->getDeviceInfo().name() == device.name()) {
+        if (card && card->deviceName() == device.name()) {
             // 从布局中移除
             QLayoutItem *item = m_flowLayout->takeAt(i);
             if (item->widget()) {

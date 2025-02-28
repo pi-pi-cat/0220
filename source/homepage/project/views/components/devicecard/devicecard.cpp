@@ -1,5 +1,6 @@
-// devicecard.cpp
 #include "devicecard.h"
+#include "../../../models/internal/deviceinfo.h"
+
 #include <QPixmap>
 #include <QEnterEvent>
 #include <QStyle>
@@ -13,12 +14,17 @@ DeviceCard::DeviceCard(QWidget *parent, int width, int height)
 }
 
 DeviceCard::DeviceCard(const DeviceInfo& info, QWidget *parent, int width, int height)
-    : QWidget(parent), m_deviceInfo(info), m_width(width), m_height(height)
+    : QWidget(parent), m_width(width), m_height(height)
 {
     setFixedSize(width, height);
     setupUI();
     setupConnections();
-    updateInfo();
+    updateInfo(info);
+}
+
+QString DeviceCard::deviceName() const
+{
+    return m_nameLabel->text();
 }
 
 void DeviceCard::setupUI()
@@ -134,31 +140,21 @@ void DeviceCard::setupConnections()
     connect(m_deleteButton, &QPushButton::clicked, this, &DeviceCard::deleteClicked);
 }
 
-void DeviceCard::updateInfo()
+void DeviceCard::updateInfo(const DeviceInfo& deviceInfo)
 {
-    m_nameLabel->setText(m_deviceInfo.displayName());
+    m_nameLabel->setText(deviceInfo.displayName());
 
-    if (!m_deviceInfo.imagePath().isEmpty()) {
-        QPixmap pixmap(m_deviceInfo.imagePath());
+    if (!deviceInfo.imagePath().isEmpty()) {
+        QPixmap pixmap(deviceInfo.imagePath());
         if (!pixmap.isNull()) {
             m_imageLabel->setPixmap(pixmap);
         }
     }
 
-    m_creationTimeLabel->setText("创建时间: " + m_deviceInfo.creationTime().toString("yyyy-MM-dd hh:mm:ss"));
-    m_modificationTimeLabel->setText("修改时间: " + m_deviceInfo.modificationTime().toString("yyyy-MM-dd hh:mm:ss"));
+    m_creationTimeLabel->setText("创建时间: " + deviceInfo.creationTime().toString("yyyy-MM-dd hh:mm:ss"));
+    m_modificationTimeLabel->setText("修改时间: " + deviceInfo.modificationTime().toString("yyyy-MM-dd hh:mm:ss"));
 }
 
-void DeviceCard::setDeviceInfo(const DeviceInfo& info)
-{
-    m_deviceInfo = info;
-    updateInfo();
-}
-
-DeviceInfo DeviceCard::getDeviceInfo() const
-{
-    return m_deviceInfo;
-}
 
 bool DeviceCard::event(QEvent *event)
 {

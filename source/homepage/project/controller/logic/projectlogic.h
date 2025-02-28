@@ -3,8 +3,8 @@
 
 #include <QObject>
 #include <QDebug>
-#include "../../models/datamodel/projectlistmodel.h"
 #include "global_h.h"
+#include "../../models/datamodel/projectlistmodel.h"
 
 class ProjectGalleryView;
 class ProjectItem;
