@@ -1,0 +1,102 @@
+/* 垂直滚动条基本样式 */
+QTreeView QScrollBar:vertical {
+    background: #f0f0f0;      /* 滚动条背景颜色 */
+    width: 12px;              /* 滚动条宽度 */
+    margin: 16px 0 16px 0;    /* 为上下箭头留出空间 */
+    border-radius: 6px;       /* 滚动条圆角 */
+}
+
+/* 滑块正常状态 */
+QTreeView QScrollBar::handle:vertical {
+    background: #c0c0c0;      /* 滑块颜色 */
+    min-height: 20px;         /* 最小高度 */
+    border-radius: 5px;       /* 滑块圆角 */
+}
+
+/* 滑块悬停状态 */
+QTreeView QScrollBar::handle:vertical:hover {
+    background: #a0a0a0;      /* 悬停时滑块颜色 */
+}
+
+/* 滑块按住状态 */
+QTreeView QScrollBar::handle:vertical:pressed {
+    background: #808080;      /* 按住时滑块颜色 */
+}
+
+/* 滚动条上箭头区域 - 正常状态 */
+QTreeView QScrollBar::sub-line:vertical {
+    border: none;
+    background: #d0d0d0;
+    height: 16px;             /* 箭头区域高度 */
+    width: 12px;              /* 箭头区域宽度 */
+    subcontrol-position: top;
+    subcontrol-origin: margin;
+    border-radius: 3px;
+}
+
+/* 滚动条上箭头区域 - 悬停状态 */
+QTreeView QScrollBar::sub-line:vertical:hover {
+    background: #c0c0c0;
+}
+
+/* 滚动条上箭头区域 - 按住状态 */
+QTreeView QScrollBar::sub-line:vertical:pressed {
+    background: #a0a0a0;
+}
+
+/* 滚动条下箭头区域 - 正常状态 */
+QTreeView QScrollBar::add-line:vertical {
+    border: none;
+    background: #d0d0d0;
+    height: 16px;             /* 箭头区域高度 */
+    width: 12px;              /* 箭头区域宽度 */
+    subcontrol-position: bottom;
+    subcontrol-origin: margin;
+    border-radius: 3px;
+}
+
+/* 滚动条下箭头区域 - 悬停状态 */
+QTreeView QScrollBar::add-line:vertical:hover {
+    background: #c0c0c0;
+}
+
+/* 滚动条下箭头区域 - 按住状态 */
+QTreeView QScrollBar::add-line:vertical:pressed {
+    background: #a0a0a0;
+}
+
+/* 上箭头图标 - 可以使用自定义图片或默认箭头 */
+QTreeView QScrollBar::up-arrow:vertical {
+    width: 8px;               /* 箭头图标宽度 */
+    height: 8px;              /* 箭头图标高度 */
+    /* 如果使用自定义图片: */
+    /* image: url(:/images/up-arrow.png); */
+}
+
+/* 下箭头图标 */
+QTreeView QScrollBar::down-arrow:vertical {
+    width: 8px;               /* 箭头图标宽度 */
+    height: 8px;              /* 箭头图标高度 */
+    /* 如果使用自定义图片: */
+    /* image: url(:/images/down-arrow.png); */
+}
+
+/* 滚动条空白区域(上) - 非滑块部分 */
+QTreeView QScrollBar::sub-page:vertical {
+    background: #e0e0e0;      /* 上方非滑块区域背景色 */
+}
+
+/* 滚动条空白区域(下) - 非滑块部分 */
+QTreeView QScrollBar::add-page:vertical {
+    background: #e0e0e0;      /* 下方非滑块区域背景色 */
+}
+
+/* 水平滚动条也可以类似设置 */
+QTreeView QScrollBar:horizontal {
+    background: #f0f0f0;
+    height: 12px;             /* 水平滚动条高度 */
+    margin: 0 16px 0 16px;    /* 为左右箭头留出空间 */
+    border-radius: 6px;
+}
+
+/* 其他水平滚动条相关样式... */
